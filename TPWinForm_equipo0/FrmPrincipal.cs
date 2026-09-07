@@ -1,3 +1,6 @@
+using Dominio;
+using Negocio;
+
 namespace TPWinForm_equipo0
 {
     public partial class FrmPrincipal : Form
