@@ -21,6 +21,41 @@ namespace TPWinForm_equipo0
                     break;
                 }
             }
+
+            // Configuracion inicial botones menu principal
+            PnlOpcionesArticulos.Visible = false;
+            PnlOpcionesCategorias.Visible = false;
+            PnlOpcionesMarcas.Visible = false;
+        }
+
+        private void BtnArticulos_Click(object sender, EventArgs e)
+        {
+            bool esVisible = PnlOpcionesArticulos.Visible;
+
+            PnlOpcionesCategorias.Visible = false;
+            PnlOpcionesMarcas.Visible = false;
+
+            PnlOpcionesArticulos.Visible = !esVisible;
+        }
+
+        private void BtnMarcas_Click(object sender, EventArgs e)
+        {
+            bool esVisible = PnlOpcionesMarcas.Visible;
+
+            PnlOpcionesCategorias.Visible = false;
+            PnlOpcionesArticulos.Visible = false;
+
+            PnlOpcionesMarcas.Visible = !esVisible;
+        }
+
+        private void BtnCategorias_Click(object sender, EventArgs e)
+        {
+            bool esVisible = PnlOpcionesCategorias.Visible;
+
+            PnlOpcionesMarcas.Visible = false;
+            PnlOpcionesArticulos.Visible = false;
+
+            PnlOpcionesCategorias.Visible = !esVisible;
         }
     }
 }
