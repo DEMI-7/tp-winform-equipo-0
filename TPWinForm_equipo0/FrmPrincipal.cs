@@ -57,5 +57,21 @@ namespace TPWinForm_equipo0
 
             PnlOpcionesCategorias.Visible = !esVisible;
         }
+
+        private void BtnVerArticulos_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(FrmVerArticulos))
+                {
+                    return;
+                }
+            }
+
+
+            FrmVerArticulos ventana = new FrmVerArticulos();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
     }
 }

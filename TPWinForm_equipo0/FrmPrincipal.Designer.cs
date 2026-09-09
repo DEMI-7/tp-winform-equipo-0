@@ -118,6 +118,7 @@
             BtnVerArticulos.TabIndex = 8;
             BtnVerArticulos.Text = "Ver artículos";
             BtnVerArticulos.UseVisualStyleBackColor = false;
+            BtnVerArticulos.Click += BtnVerArticulos_Click;
             // 
             // BtnEliminarArticulo
             // 
