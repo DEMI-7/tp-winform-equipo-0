@@ -1,0 +1,9 @@
+abrir el cmd en esta carpeta y ejecutar el siguiente comando:
+
+docker compose up -d
+
+Nombre del servidor: localhost,1433
+Nombre de usuario: sa
+Contraseña: Grupo0_1234!
+
+se conectan a la base desde el management studio y ahi ejecutan el .sql que nos dio el profe maxi.
