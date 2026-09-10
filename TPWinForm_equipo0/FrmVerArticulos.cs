@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,13 @@ namespace TPWinForm_equipo0
         public FrmVerArticulos()
         {
             InitializeComponent();
+        }
+
+        private void FrmVerArticulos_Load(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            GrillaArticulos.DataSource = negocio.listar();
+
         }
     }
 }

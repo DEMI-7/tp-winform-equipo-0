@@ -104,6 +104,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmVerArticulos";
             WindowState = FormWindowState.Maximized;
+            Load += FrmVerArticulos_Load;
             ((System.ComponentModel.ISupportInitialize)PbxImagenArticulo).EndInit();
             ((System.ComponentModel.ISupportInitialize)GrillaArticulos).EndInit();
             ResumeLayout(false);
