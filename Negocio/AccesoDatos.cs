@@ -1,0 +1,57 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Dominio;
+using Microsoft.Data.SqlClient;
+
+namespace Negocio
+{
+    public class AccesoDatos
+    {
+        private SqlConnection conexion;
+        private SqlCommand comando;
+        private SqlDataReader lector = null!; // Le puse el null! porque sino tiraba un warnin que no podia ser null
+        public SqlDataReader Lector
+        {
+            get { return lector; }
+        }
+
+        public AccesoDatos()
+        {
+            conexion = new SqlConnection("Server=localhost,1433;Database=CATALOGO_P3_DB;User Id=sa;Password=Grupo0_1234!;TrustServerCertificate=True;");
+            comando = new SqlCommand();
+        }
+
+        // Recibe la consulta SQL que sera ejecutada
+        public void SeterarConsulta(string consulta)
+        {
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = consulta;
+        }
+
+        // Lanzara una excepcion si la conexion falla
+        public void EjecutarLectura()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                lector = comando.ExecuteReader();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        // Obligatorio cerrar la conexion siempre
+        public void CerrarConexion()
+        {
+            if(lector != null)
+            {
+                lector.Close();
+            }
+            conexion.Close();
+        }
+    }
+}
