@@ -68,6 +68,7 @@
             GrillaArticulos.Name = "GrillaArticulos";
             GrillaArticulos.Size = new Size(351, 363);
             GrillaArticulos.TabIndex = 1;
+            GrillaArticulos.SelectionChanged += GrillaArticulos_SelectionChanged;
             // 
             // TxtBuscador
             // 

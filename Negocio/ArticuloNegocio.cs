@@ -8,7 +8,7 @@ namespace Negocio
     public class ArticuloNegocio
     {
 		// Accede a la BDD mediante la clase AccesoDatos, setea una consulta y la ejecuta en el try catch
-        public List<Articulo> listar()
+        public List<Articulo> Listar()
         {
 			List<Articulo> lista = new List<Articulo>();
 			AccesoDatos conexion = new AccesoDatos();
@@ -38,6 +38,11 @@ namespace Negocio
 					lista.Add(aux);
 
                 }
+
+				// esta parte recupera las imagenes y las asigna a los productos
+				ImagenNegocio negocio = new ImagenNegocio();
+				AsignarImagenes(lista, negocio.Listar());
+
 				return lista;
 			}
 			catch (Exception)
@@ -49,5 +54,19 @@ namespace Negocio
 				conexion.CerrarConexion();
 			}
         }
+
+		private void AsignarImagenes(List<Articulo> listaArticulos, List<Imagen> listaImagenes)
+		{
+			foreach (var articulo in listaArticulos)
+			{
+				foreach(var imagen in listaImagenes)
+				{
+					if (articulo.Id == imagen.IdArticulo)
+					{
+						articulo.listaImagenes.Add(imagen);
+					}
+				}
+			}
+		}
     }
 }
