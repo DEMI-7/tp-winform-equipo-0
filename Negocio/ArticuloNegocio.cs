@@ -12,7 +12,7 @@ namespace Negocio
         {
 			List<Articulo> lista = new List<Articulo>();
 			AccesoDatos conexion = new AccesoDatos();
-			conexion.SeterarConsulta("SELECT Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio FROM ARTICULOS");
+			conexion.SeterarConsulta("SELECT Art.Id, Art.Codigo, Art.Nombre, Art.Descripcion, Art.IdMarca, Mar.Descripcion AS Marca, Art.IdCategoria, Cat.Descripcion AS Categoria, Art.Precio FROM ARTICULOS Art INNER JOIN MARCAS Mar ON Art.IdMarca = Mar.Id INNER JOIN CATEGORIAS Cat ON Art.IdCategoria = Cat.Id");
 
 			try
 			{
@@ -26,11 +26,14 @@ namespace Negocio
 					aux.Codigo = (string)conexion.Lector["Codigo"];
 					aux.Nombre = (string)conexion.Lector["Nombre"];
 					aux.Descripcion = (string)conexion.Lector["Descripcion"];
-					aux.MarcaProducto.Id = (int)conexion.Lector["IdMarca"];
-					aux.CategoriaProducto.Id = (int)conexion.Lector["IdCategoria"];
 
-					// Respecto a precio voy a preguntar en el foro si conviene tratarlo como decimal o como float
-					aux.Precio = (float)(decimal)conexion.Lector["Precio"];
+					aux.MarcaProducto.Id = (int)conexion.Lector["IdMarca"];
+					aux.MarcaProducto.Nombre = (string)conexion.Lector["Marca"];
+
+					aux.CategoriaProducto.Id = (int)conexion.Lector["IdCategoria"];
+					aux.CategoriaProducto.Nombre = (string)conexion.Lector["Categoria"];
+
+					aux.Precio = (decimal)conexion.Lector["Precio"];
 
 					lista.Add(aux);
 
