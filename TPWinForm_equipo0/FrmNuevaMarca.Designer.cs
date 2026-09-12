@@ -28,44 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
+            components = new System.ComponentModel.Container();
+            lblTitulo = new Label();
+            lblNombre = new Label();
+            txtNombre = new TextBox();
+            btnGuardar = new Button();
+            btnCancelar = new Button();
+            errorProvider1 = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(61, 40);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(133, 27);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(77, 15);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Nueva Marca";
+            lblTitulo.Click += label1_Click;
             // 
-            // label2
+            // lblNombre
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(61, 71);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 1;
-            label2.Text = "label2";
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(61, 71);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(57, 15);
+            lblNombre.TabIndex = 1;
+            lblNombre.Text = "Nombre: ";
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(124, 71);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(100, 23);
+            txtNombre.TabIndex = 2;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(84, 123);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(75, 23);
+            btnGuardar.TabIndex = 3;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(217, 123);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.TabIndex = 4;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // FrmNuevaMarca
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnGuardar);
+            Controls.Add(txtNombre);
+            Controls.Add(lblNombre);
+            Controls.Add(lblTitulo);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmNuevaMarca";
-            Text = "FrmNuevaMarca";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Nueva Marca";
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
+        private void Label1_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
-        private Label label1;
-        private Label label2;
+        private Label lblTitulo;
+        private Label lblNombre;
+        private TextBox txtNombre;
+        private Button btnGuardar;
+        private Button btnCancelar;
+        private ErrorProvider errorProvider1;
     }
 }

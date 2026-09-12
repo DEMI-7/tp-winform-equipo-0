@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Dominio; 
+using System.Linq;
 
 
 namespace Negocio
@@ -67,6 +68,14 @@ namespace Negocio
             // no hace falta finally porque el metodo ejecutarAccion ya cierra la conexion.
 
 
+        }
+
+        public bool Existe (string nombre)
+        {
+            List <Marca> lista = Listar();
+
+            
+            return lista.Any(x => x.Nombre.ToLower() == nombre.ToLower  ());
         }
 
 

@@ -41,7 +41,7 @@
             PnlOpcionesMarcas = new Panel();
             BtnVerMarcas = new Button();
             BtnEliminarMarca = new Button();
-            BtnNuevaMarca = new Button();
+            btnNuevaMarca = new Button();
             BtnCategorias = new Button();
             PnlOpcionesCategorias = new Panel();
             BtnVerCategorias = new Button();
@@ -162,7 +162,7 @@
             // 
             PnlOpcionesMarcas.Controls.Add(BtnVerMarcas);
             PnlOpcionesMarcas.Controls.Add(BtnEliminarMarca);
-            PnlOpcionesMarcas.Controls.Add(BtnNuevaMarca);
+            PnlOpcionesMarcas.Controls.Add(btnNuevaMarca);
             PnlOpcionesMarcas.Location = new Point(3, 214);
             PnlOpcionesMarcas.Margin = new Padding(3, 0, 3, 3);
             PnlOpcionesMarcas.Name = "PnlOpcionesMarcas";
@@ -193,17 +193,18 @@
             BtnEliminarMarca.Text = "Eliminar marca";
             BtnEliminarMarca.UseVisualStyleBackColor = false;
             // 
-            // BtnNuevaMarca
+            // btnNuevaMarca
             // 
-            BtnNuevaMarca.BackColor = Color.White;
-            BtnNuevaMarca.FlatStyle = FlatStyle.Flat;
-            BtnNuevaMarca.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
-            BtnNuevaMarca.Location = new Point(2, 44);
-            BtnNuevaMarca.Name = "BtnNuevaMarca";
-            BtnNuevaMarca.Size = new Size(170, 37);
-            BtnNuevaMarca.TabIndex = 9;
-            BtnNuevaMarca.Text = "Nueva marca";
-            BtnNuevaMarca.UseVisualStyleBackColor = false;
+            btnNuevaMarca.BackColor = Color.White;
+            btnNuevaMarca.FlatStyle = FlatStyle.Flat;
+            btnNuevaMarca.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            btnNuevaMarca.Location = new Point(2, 44);
+            btnNuevaMarca.Name = "btnNuevaMarca";
+            btnNuevaMarca.Size = new Size(170, 37);
+            btnNuevaMarca.TabIndex = 9;
+            btnNuevaMarca.Text = "Nueva marca";
+            btnNuevaMarca.UseVisualStyleBackColor = false;
+            btnNuevaMarca.Click += btnNuevaMarca_Click;
             // 
             // BtnCategorias
             // 
@@ -315,7 +316,7 @@
         private Panel PnlOpcionesMarcas;
         private Button BtnVerMarcas;
         private Button BtnEliminarMarca;
-        private Button BtnNuevaMarca;
+        private Button btnNuevaMarca;
         private Panel PnlOpcionesCategorias;
         private Button BtnVerCategorias;
         private Button BtnEliminarCategoria;
