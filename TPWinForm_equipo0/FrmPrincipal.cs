@@ -1,6 +1,7 @@
 using Dominio;
 using Negocio;
 
+
 namespace TPWinForm_equipo0
 {
     public partial class FrmPrincipal : Form
@@ -73,5 +74,13 @@ namespace TPWinForm_equipo0
             ventana.MdiParent = this;
             ventana.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
+    
 }
