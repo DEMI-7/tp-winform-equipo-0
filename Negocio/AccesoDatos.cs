@@ -53,5 +53,43 @@ namespace Negocio
             }
             conexion.Close();
         }
-    }
+
+        public void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open(); //abrimos conexion
+                comando.ExecuteNonQuery(); 
+                // se encarga de ejercutar
+                 // insert, update y delete
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.Close();  //cerramos conexion 
+            }
+
+        }
+
+        //agrega un parametro al comando
+        public void agregarParametro(string nombre, object valor)
+        { 
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+
+        //limpia los parametros del comando
+        public void limpiarParametros()
+        { 
+            comando.Parameters.Clear(); 
+        }
+
+
+
+
+  }
+
 }
