@@ -24,7 +24,8 @@ namespace TPWinForm_equipo0
         {
 
         }
-        private void CargarCategoria() { 
+        private void CargarCategoria()
+        {
             CategoriaNegocio negocio = new CategoriaNegocio();
             try
             {
@@ -32,7 +33,12 @@ namespace TPWinForm_equipo0
                 GrillaCategorias.DataSource = negocio.Listar();
                 GrillaCategorias.Columns["Id"]!.Visible = false;
             }
-            catch (Exception ex){ MessageBox.Show("Error al cargar las categorias: " + ex.ToString()); }
+            catch (Exception ex) { MessageBox.Show("Error al cargar las categorias: " + ex.ToString()); }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             GrillaCategorias = new DataGridView();
+            btnBuscarCat = new Button();
+            txtBuscarCat = new TextBox();
             ((System.ComponentModel.ISupportInitialize)GrillaCategorias).BeginInit();
             SuspendLayout();
             // 
@@ -36,17 +38,37 @@
             // 
             GrillaCategorias.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrillaCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GrillaCategorias.Location = new Point(12, 63);
+            GrillaCategorias.Location = new Point(12, 81);
             GrillaCategorias.Name = "GrillaCategorias";
-            GrillaCategorias.Size = new Size(419, 375);
+            GrillaCategorias.Size = new Size(419, 357);
             GrillaCategorias.TabIndex = 0;
             GrillaCategorias.CellContentClick += GrillaCategorias_CellContentClick;
+            // 
+            // btnBuscarCat
+            // 
+            btnBuscarCat.Font = new Font("Segoe UI", 11F);
+            btnBuscarCat.Location = new Point(319, 14);
+            btnBuscarCat.Name = "btnBuscarCat";
+            btnBuscarCat.Size = new Size(112, 47);
+            btnBuscarCat.TabIndex = 1;
+            btnBuscarCat.Text = "Buscar";
+            btnBuscarCat.UseVisualStyleBackColor = true;
+            btnBuscarCat.Click += button1_Click;
+            // 
+            // txtBuscarCat
+            // 
+            txtBuscarCat.Location = new Point(12, 28);
+            txtBuscarCat.Name = "txtBuscarCat";
+            txtBuscarCat.Size = new Size(301, 23);
+            txtBuscarCat.TabIndex = 2;
             // 
             // FrmVerCategorias
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(txtBuscarCat);
+            Controls.Add(btnBuscarCat);
             Controls.Add(GrillaCategorias);
             Name = "FrmVerCategorias";
             StartPosition = FormStartPosition.CenterScreen;
@@ -55,10 +77,13 @@
             Load += FrmVerCategorias_Load;
             ((System.ComponentModel.ISupportInitialize)GrillaCategorias).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private DataGridView GrillaCategorias;
+        private Button btnBuscarCat;
+        private TextBox txtBuscarCat;
     }
 }

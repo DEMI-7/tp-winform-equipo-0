@@ -35,5 +35,24 @@ namespace Negocio
                 conexion.CerrarConexion(); //cerramos conxion con la bd
             }
         }
+
+        public void Agregar (Categoria nueva)
+        {
+            AccesoDatos conexion = new AccesoDatos();  // conectamos a bd
+            try
+            {
+                conexion.SeterarConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@Descripcion)");
+
+                conexion.agregarParametro("@Descripcion", nueva.Nombre);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.CerrarConexion(); //cerramos conxion con la bd
+            }
+        }
     }
 }
