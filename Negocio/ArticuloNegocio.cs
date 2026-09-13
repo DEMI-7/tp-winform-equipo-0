@@ -67,6 +67,39 @@ namespace Negocio
 			}
         }
 
+		public void NuevoRegistro(Articulo nuevo)
+		{
+			AccesoDatos conexion = new AccesoDatos();
+
+			try
+			{
+				conexion.SeterarConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio)" +
+					" values (@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio)");
+				conexion.agregarParametro("@Codigo", nuevo.Codigo);
+                conexion.agregarParametro("@Nombre", nuevo.Nombre);
+
+				if (string.IsNullOrWhiteSpace(nuevo.Descripcion))
+				{
+					conexion.agregarParametro("@Descripcion", DBNull.Value);
+				}
+				else
+				{
+					conexion.agregarParametro("@Descripcion", nuevo.Descripcion);
+				}
+
+                conexion.agregarParametro("@IdMarca", nuevo.MarcaProducto.Id);
+                conexion.agregarParametro("@IdCategoria", nuevo.CategoriaProducto.Id);
+                conexion.agregarParametro("@Precio", nuevo.Precio);
+
+                conexion.ejecutarAccion();
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+		}
+
 		private void AsignarImagenes(List<Articulo> listaArticulos, List<Imagen> listaImagenes)
 		{
 			foreach (var articulo in listaArticulos)

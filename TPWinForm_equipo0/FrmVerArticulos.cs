@@ -29,7 +29,14 @@ namespace TPWinForm_equipo0
             if (GrillaArticulos.CurrentRow != null && GrillaArticulos.CurrentRow.DataBoundItem != null)
             {
                 Articulo seleccion = (Articulo)GrillaArticulos.CurrentRow.DataBoundItem;
-                CargarImagen(seleccion.listaImagenes[0].Url);
+                if (!(seleccion.listaImagenes.Count == 0))
+                {
+                    CargarImagen(seleccion.listaImagenes[0].Url);
+                }
+                else
+                {
+                    PbxImagenArticulo.Image = Properties.Resources.PlaceHolder;
+                }
             }
         }
 

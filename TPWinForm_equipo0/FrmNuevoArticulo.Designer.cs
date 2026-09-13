@@ -36,13 +36,13 @@
             LblMarca = new Label();
             LblCategoria = new Label();
             LblPrecio = new Label();
-            TbxCodigo = new TextBox();
-            TbxNombre = new TextBox();
-            TbxDescripcion = new TextBox();
-            TbxPrecio = new TextBox();
+            TxtCodigo = new TextBox();
+            TxtNombre = new TextBox();
+            TxtDescripcion = new TextBox();
+            TxtPrecio = new TextBox();
             PbxImagenArticulo = new PictureBox();
             LblUrlImagen = new Label();
-            TbxUrlImagen = new TextBox();
+            TxtUrlImagen = new TextBox();
             BtnCancelar = new Button();
             ComboMarca = new ComboBox();
             ComboCategoria = new ComboBox();
@@ -127,41 +127,41 @@
             LblPrecio.TabIndex = 6;
             LblPrecio.Text = "Precio:";
             // 
-            // TbxCodigo
+            // TxtCodigo
             // 
-            TbxCodigo.Anchor = AnchorStyles.Left;
-            TbxCodigo.Font = new Font("Segoe UI", 15.75F);
-            TbxCodigo.Location = new Point(218, 47);
-            TbxCodigo.Name = "TbxCodigo";
-            TbxCodigo.Size = new Size(635, 35);
-            TbxCodigo.TabIndex = 7;
+            TxtCodigo.Anchor = AnchorStyles.Left;
+            TxtCodigo.Font = new Font("Segoe UI", 15.75F);
+            TxtCodigo.Location = new Point(218, 47);
+            TxtCodigo.Name = "TxtCodigo";
+            TxtCodigo.Size = new Size(635, 35);
+            TxtCodigo.TabIndex = 7;
             // 
-            // TbxNombre
+            // TxtNombre
             // 
-            TbxNombre.Anchor = AnchorStyles.Left;
-            TbxNombre.Font = new Font("Segoe UI", 15.75F);
-            TbxNombre.Location = new Point(218, 111);
-            TbxNombre.Name = "TbxNombre";
-            TbxNombre.Size = new Size(635, 35);
-            TbxNombre.TabIndex = 8;
+            TxtNombre.Anchor = AnchorStyles.Left;
+            TxtNombre.Font = new Font("Segoe UI", 15.75F);
+            TxtNombre.Location = new Point(218, 111);
+            TxtNombre.Name = "TxtNombre";
+            TxtNombre.Size = new Size(635, 35);
+            TxtNombre.TabIndex = 8;
             // 
-            // TbxDescripcion
+            // TxtDescripcion
             // 
-            TbxDescripcion.Anchor = AnchorStyles.Left;
-            TbxDescripcion.Font = new Font("Segoe UI", 15.75F);
-            TbxDescripcion.Location = new Point(218, 167);
-            TbxDescripcion.Name = "TbxDescripcion";
-            TbxDescripcion.Size = new Size(635, 35);
-            TbxDescripcion.TabIndex = 9;
+            TxtDescripcion.Anchor = AnchorStyles.Left;
+            TxtDescripcion.Font = new Font("Segoe UI", 15.75F);
+            TxtDescripcion.Location = new Point(218, 167);
+            TxtDescripcion.Name = "TxtDescripcion";
+            TxtDescripcion.Size = new Size(635, 35);
+            TxtDescripcion.TabIndex = 9;
             // 
-            // TbxPrecio
+            // TxtPrecio
             // 
-            TbxPrecio.Anchor = AnchorStyles.Left;
-            TbxPrecio.Font = new Font("Segoe UI", 15.75F);
-            TbxPrecio.Location = new Point(218, 347);
-            TbxPrecio.Name = "TbxPrecio";
-            TbxPrecio.Size = new Size(635, 35);
-            TbxPrecio.TabIndex = 10;
+            TxtPrecio.Anchor = AnchorStyles.Left;
+            TxtPrecio.Font = new Font("Segoe UI", 15.75F);
+            TxtPrecio.Location = new Point(218, 347);
+            TxtPrecio.Name = "TxtPrecio";
+            TxtPrecio.Size = new Size(635, 35);
+            TxtPrecio.TabIndex = 10;
             // 
             // PbxImagenArticulo
             // 
@@ -185,14 +185,14 @@
             LblUrlImagen.TabIndex = 12;
             LblUrlImagen.Text = "Url imagen:";
             // 
-            // TbxUrlImagen
+            // TxtUrlImagen
             // 
-            TbxUrlImagen.Anchor = AnchorStyles.Left;
-            TbxUrlImagen.Font = new Font("Segoe UI", 15.75F);
-            TbxUrlImagen.Location = new Point(218, 407);
-            TbxUrlImagen.Name = "TbxUrlImagen";
-            TbxUrlImagen.Size = new Size(635, 35);
-            TbxUrlImagen.TabIndex = 13;
+            TxtUrlImagen.Anchor = AnchorStyles.Left;
+            TxtUrlImagen.Font = new Font("Segoe UI", 15.75F);
+            TxtUrlImagen.Location = new Point(218, 407);
+            TxtUrlImagen.Name = "TxtUrlImagen";
+            TxtUrlImagen.Size = new Size(635, 35);
+            TxtUrlImagen.TabIndex = 13;
             // 
             // BtnCancelar
             // 
@@ -236,13 +236,13 @@
             Controls.Add(ComboCategoria);
             Controls.Add(ComboMarca);
             Controls.Add(BtnCancelar);
-            Controls.Add(TbxUrlImagen);
+            Controls.Add(TxtUrlImagen);
             Controls.Add(LblUrlImagen);
             Controls.Add(PbxImagenArticulo);
-            Controls.Add(TbxPrecio);
-            Controls.Add(TbxDescripcion);
-            Controls.Add(TbxNombre);
-            Controls.Add(TbxCodigo);
+            Controls.Add(TxtPrecio);
+            Controls.Add(TxtDescripcion);
+            Controls.Add(TxtNombre);
+            Controls.Add(TxtCodigo);
             Controls.Add(LblPrecio);
             Controls.Add(LblCategoria);
             Controls.Add(LblMarca);
@@ -255,6 +255,7 @@
             Name = "FrmNuevoArticulo";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Nuevo articulo";
+            Load += FrmNuevoArticulo_Load;
             ((System.ComponentModel.ISupportInitialize)PbxImagenArticulo).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -269,13 +270,13 @@
         private Label LblMarca;
         private Label LblCategoria;
         private Label LblPrecio;
-        private TextBox TbxCodigo;
-        private TextBox TbxNombre;
-        private TextBox TbxDescripcion;
-        private TextBox TbxPrecio;
+        private TextBox TxtCodigo;
+        private TextBox TxtNombre;
+        private TextBox TxtDescripcion;
+        private TextBox TxtPrecio;
         private PictureBox PbxImagenArticulo;
         private Label LblUrlImagen;
-        private TextBox TbxUrlImagen;
+        private TextBox TxtUrlImagen;
         private Button BtnCancelar;
         private ComboBox ComboMarca;
         private ComboBox ComboCategoria;
