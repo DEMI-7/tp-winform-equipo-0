@@ -69,15 +69,12 @@ namespace TPWinForm_equipo0
                 }
             }
 
+            CerrarFormulariosHijos();
+
 
             FrmVerArticulos ventana = new FrmVerArticulos();
             ventana.MdiParent = this;
             ventana.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnNuevaMarca_Click(object sender, EventArgs e)
@@ -93,6 +90,15 @@ namespace TPWinForm_equipo0
             FrmNuevaMarca ventana = new FrmNuevaMarca();
             ventana.MdiParent = this;
             ventana.Show();
+        }
+
+        private void CerrarFormulariosHijos()
+        {
+            // borrara formularios que sean hijos para solo permitir que exista el que abramos ultimo
+            foreach (var item in this.MdiChildren)
+            {
+                item.Close();
+            }
         }
     }
 

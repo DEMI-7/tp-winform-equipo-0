@@ -23,9 +23,18 @@ namespace Negocio
 					Articulo aux = new Articulo();
 
 					aux.Id = (int)conexion.Lector["Id"];
-					aux.Codigo = (string)conexion.Lector["Codigo"];
+
+					if (!(conexion.Lector["Codigo"] is DBNull))
+					{
+						aux.Codigo = (string)conexion.Lector["Codigo"];
+					}
+
 					aux.Nombre = (string)conexion.Lector["Nombre"];
-					aux.Descripcion = (string)conexion.Lector["Descripcion"];
+
+					if (!(conexion.Lector["Descripcion"] is DBNull))
+					{
+						aux.Descripcion = (string)conexion.Lector["Descripcion"];
+					}
 
 					aux.MarcaProducto.Id = (int)conexion.Lector["IdMarca"];
 					aux.MarcaProducto.Nombre = (string)conexion.Lector["Marca"];
@@ -33,7 +42,10 @@ namespace Negocio
 					aux.CategoriaProducto.Id = (int)conexion.Lector["IdCategoria"];
 					aux.CategoriaProducto.Nombre = (string)conexion.Lector["Categoria"];
 
-					aux.Precio = (decimal)conexion.Lector["Precio"];
+					if (!(conexion.Lector["Precio"] is DBNull))
+					{
+						aux.Precio = (decimal)conexion.Lector["Precio"];
+					}
 
 					lista.Add(aux);
 

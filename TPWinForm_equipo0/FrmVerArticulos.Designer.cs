@@ -64,8 +64,11 @@
             // 
             GrillaArticulos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrillaArticulos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GrillaArticulos.EditMode = DataGridViewEditMode.EditProgrammatically;
             GrillaArticulos.Location = new Point(12, 53);
+            GrillaArticulos.MultiSelect = false;
             GrillaArticulos.Name = "GrillaArticulos";
+            GrillaArticulos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             GrillaArticulos.Size = new Size(351, 363);
             GrillaArticulos.TabIndex = 1;
             GrillaArticulos.SelectionChanged += GrillaArticulos_SelectionChanged;
