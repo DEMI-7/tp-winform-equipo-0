@@ -119,6 +119,22 @@ namespace TPWinForm_equipo0
             ventana.WindowState = FormWindowState.Maximized;
             ventana.Show();
         }
+
+        private void BtnVerCategorias_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType()== typeof(FrmVerCategorias))
+                {
+                    return;
+                }
+            }
+            CerrarFormulariosHijos();
+
+            FrmVerCategorias ventana = new FrmVerCategorias();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
     }
 
 }

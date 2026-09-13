@@ -65,12 +65,13 @@
             GrillaArticulos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrillaArticulos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GrillaArticulos.EditMode = DataGridViewEditMode.EditProgrammatically;
-            GrillaArticulos.Location = new Point(12, 53);
+            GrillaArticulos.Location = new Point(12, 60);
             GrillaArticulos.MultiSelect = false;
             GrillaArticulos.Name = "GrillaArticulos";
             GrillaArticulos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            GrillaArticulos.Size = new Size(351, 363);
+            GrillaArticulos.Size = new Size(351, 356);
             GrillaArticulos.TabIndex = 1;
+            GrillaArticulos.CellContentClick += GrillaArticulos_CellContentClick;
             GrillaArticulos.SelectionChanged += GrillaArticulos_SelectionChanged;
             // 
             // TxtBuscador
@@ -81,17 +82,19 @@
             TxtBuscador.Name = "TxtBuscador";
             TxtBuscador.Size = new Size(257, 35);
             TxtBuscador.TabIndex = 3;
+            TxtBuscador.TextChanged += TxtBuscador_TextChanged;
             // 
             // BtnBuscar
             // 
             BtnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnBuscar.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BtnBuscar.Location = new Point(275, 12);
+            BtnBuscar.Location = new Point(275, 6);
             BtnBuscar.Name = "BtnBuscar";
-            BtnBuscar.Size = new Size(88, 35);
+            BtnBuscar.Size = new Size(88, 48);
             BtnBuscar.TabIndex = 4;
             BtnBuscar.Text = "Buscar";
             BtnBuscar.UseVisualStyleBackColor = true;
+            BtnBuscar.Click += BtnBuscar_Click;
             // 
             // FrmVerArticulos
             // 
@@ -106,7 +109,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmVerArticulos";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmVerArticulos";
+            Text = "Ver Articulos";
             WindowState = FormWindowState.Maximized;
             Load += FrmVerArticulos_Load;
             ((System.ComponentModel.ISupportInitialize)PbxImagenArticulo).EndInit();

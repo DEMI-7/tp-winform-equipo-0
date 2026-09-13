@@ -72,5 +72,20 @@ namespace TPWinForm_equipo0
                 MessageBox.Show("Error al cargar la grilla" + ex.ToString());
             }
         }
+
+        private void GrillaArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void TxtBuscador_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

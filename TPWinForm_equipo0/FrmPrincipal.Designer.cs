@@ -243,6 +243,7 @@
             BtnVerCategorias.TabIndex = 8;
             BtnVerCategorias.Text = "Ver categorías";
             BtnVerCategorias.UseVisualStyleBackColor = false;
+            BtnVerCategorias.Click += BtnVerCategorias_Click;
             // 
             // BtnEliminarCategoria
             // 
