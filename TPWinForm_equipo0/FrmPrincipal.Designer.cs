@@ -143,6 +143,7 @@
             BtnNuevoArticulo.TabIndex = 9;
             BtnNuevoArticulo.Text = "Nuevo artículo";
             BtnNuevoArticulo.UseVisualStyleBackColor = false;
+            BtnNuevoArticulo.Click += BtnNuevoArticulo_Click;
             // 
             // BtnMarcas
             // 

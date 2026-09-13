@@ -100,6 +100,25 @@ namespace TPWinForm_equipo0
                 item.Close();
             }
         }
+
+        private void BtnNuevoArticulo_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(FrmNuevoArticulo))
+                {
+                    return;
+                }
+            }
+
+            CerrarFormulariosHijos();
+
+
+            FrmNuevoArticulo ventana = new FrmNuevoArticulo();
+            ventana.MdiParent = this;
+            ventana.WindowState = FormWindowState.Maximized;
+            ventana.Show();
+        }
     }
 
 }
