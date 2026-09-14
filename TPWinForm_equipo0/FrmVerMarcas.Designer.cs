@@ -37,7 +37,7 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(159, 58);
+            lblTitulo.Location = new Point(12, 9);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(106, 19);
             lblTitulo.TabIndex = 0;
@@ -50,13 +50,13 @@
             dgvMarcas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvMarcas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMarcas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMarcas.Location = new Point(100, 107);
+            dgvMarcas.Location = new Point(12, 42);
             dgvMarcas.MultiSelect = false;
             dgvMarcas.Name = "dgvMarcas";
             dgvMarcas.ReadOnly = true;
             dgvMarcas.RowHeadersVisible = false;
             dgvMarcas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvMarcas.Size = new Size(386, 119);
+            dgvMarcas.Size = new Size(520, 212);
             dgvMarcas.TabIndex = 1;
             // 
             // FrmVerMarcas
