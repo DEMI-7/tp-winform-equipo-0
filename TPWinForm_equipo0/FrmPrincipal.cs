@@ -136,11 +136,25 @@ namespace TPWinForm_equipo0
             ventana.Show();
         }
 
+
         private void BtnNuevaCategoria_Click(object sender, EventArgs e)
         {
+            
+
             foreach (var item in Application.OpenForms)
             {
                 if (item.GetType() == typeof(FrmNuevaCategoria))
+                {
+                    return;
+                }
+            }
+
+            CerrarFormulariosHijos();
+            FrmNuevaCategoria ventana = new FrmNuevaCategoria();
+            ventana.MdiParent = this;
+            ventana.Show();
+
+        }
         private void BtnVerMarcas_Click(object sender, EventArgs e)
         {
             //se evita abrir varias ventanas iguales ; 
@@ -151,15 +165,10 @@ namespace TPWinForm_equipo0
                     return;
                 }
             }
-            CerrarFormulariosHijos();
-            FrmNuevaCategoria ventana = new FrmNuevaCategoria();
-            ventana.MdiParent = this;
-            ventana.Show();
-            }
 
+            CerrarFormulariosHijos();
             FrmVerMarcas ventana = new FrmVerMarcas();
             ventana.MdiParent = this;
-            
             ventana.Show();
 
         }
