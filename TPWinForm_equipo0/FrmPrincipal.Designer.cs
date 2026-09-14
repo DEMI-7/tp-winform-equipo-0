@@ -236,7 +236,7 @@
             // 
             BtnVerCategorias.BackColor = Color.White;
             BtnVerCategorias.FlatStyle = FlatStyle.Flat;
-            BtnVerCategorias.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            BtnVerCategorias.Font = new Font("Segoe UI Semibold", 12.7F);
             BtnVerCategorias.Location = new Point(2, 3);
             BtnVerCategorias.Name = "BtnVerCategorias";
             BtnVerCategorias.Size = new Size(170, 37);
@@ -249,25 +249,26 @@
             // 
             BtnEliminarCategoria.BackColor = Color.White;
             BtnEliminarCategoria.FlatStyle = FlatStyle.Flat;
-            BtnEliminarCategoria.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            BtnEliminarCategoria.Font = new Font("Segoe UI Semibold", 12.7F);
             BtnEliminarCategoria.Location = new Point(2, 85);
             BtnEliminarCategoria.Name = "BtnEliminarCategoria";
             BtnEliminarCategoria.Size = new Size(170, 37);
             BtnEliminarCategoria.TabIndex = 9;
-            BtnEliminarCategoria.Text = "Eliminar categoria";
+            BtnEliminarCategoria.Text = "Eliminar categoría";
             BtnEliminarCategoria.UseVisualStyleBackColor = false;
             // 
             // BtnNuevaCategoria
             // 
             BtnNuevaCategoria.BackColor = Color.White;
             BtnNuevaCategoria.FlatStyle = FlatStyle.Flat;
-            BtnNuevaCategoria.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            BtnNuevaCategoria.Font = new Font("Segoe UI Semibold", 12.7F);
             BtnNuevaCategoria.Location = new Point(2, 44);
             BtnNuevaCategoria.Name = "BtnNuevaCategoria";
             BtnNuevaCategoria.Size = new Size(170, 37);
             BtnNuevaCategoria.TabIndex = 9;
             BtnNuevaCategoria.Text = "Nueva categoría";
             BtnNuevaCategoria.UseVisualStyleBackColor = false;
+            BtnNuevaCategoria.Click += BtnNuevaCategoria_Click;
             // 
             // PbxLogo
             // 
