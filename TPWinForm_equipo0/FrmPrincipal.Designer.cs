@@ -181,6 +181,7 @@
             BtnVerMarcas.TabIndex = 8;
             BtnVerMarcas.Text = "Ver marcas";
             BtnVerMarcas.UseVisualStyleBackColor = false;
+            BtnVerMarcas.Click += BtnVerMarcas_Click;
             // 
             // BtnEliminarMarca
             // 

@@ -29,8 +29,9 @@ namespace TPWinForm_equipo0
             MarcaNegocio negocio = new MarcaNegocio();
             try
             {
-                List <Marca> lista = negocio.Listar();
+                List<Marca> lista = negocio.Listar(); //.OrderBy(x => x.Nombre).ToList();
                 dgvMarcas.DataSource = lista;
+              
 
 
             }

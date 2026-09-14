@@ -141,6 +141,12 @@ namespace TPWinForm_equipo0
             foreach (var item in Application.OpenForms)
             {
                 if (item.GetType() == typeof(FrmNuevaCategoria))
+        private void BtnVerMarcas_Click(object sender, EventArgs e)
+        {
+            //se evita abrir varias ventanas iguales ; 
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(FrmVerMarcas))
                 {
                     return;
                 }
@@ -150,6 +156,13 @@ namespace TPWinForm_equipo0
             ventana.MdiParent = this;
             ventana.Show();
             }
+
+            FrmVerMarcas ventana = new FrmVerMarcas();
+            ventana.MdiParent = this;
+            
+            ventana.Show();
+
+        }
     }
 
 }
