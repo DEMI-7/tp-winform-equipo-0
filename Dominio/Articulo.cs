@@ -11,7 +11,7 @@ namespace Dominio
         [DisplayName("Código")]
         public string Codigo { get; set; } = string.Empty;
         public string Nombre {  get; set; } = string.Empty;
-        [DisplayName("Descripción")]
+        [Browsable(false)]
         public string Descripcion {  get; set; } = string.Empty;
         [DisplayName("Marca")]
         public Marca MarcaProducto { get; set; } = new Marca();

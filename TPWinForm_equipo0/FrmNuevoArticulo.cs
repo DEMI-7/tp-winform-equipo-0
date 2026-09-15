@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Microsoft.IdentityModel.Abstractions;
 
 namespace TPWinForm_equipo0
 {
@@ -16,11 +17,20 @@ namespace TPWinForm_equipo0
         // La binding list es una lista que actualiza automaticamente la grilla
         // tuve que usarla porque me daba un error la lista comun al actualizarla a mano
         // fue la unica forma de solucionarlo, igual funciona igual que una lista para nuestro caso y no nos cambia en nada mas
-        BindingList<Imagen> imagenesArticulo = new BindingList<Imagen>();
+        private BindingList<Imagen> imagenesArticulo = new BindingList<Imagen>();
+
+        private Articulo articulo = null!;
 
         public FrmNuevoArticulo()
         {
             InitializeComponent();
+        }
+
+        public FrmNuevoArticulo (Articulo seleccionado)
+        {
+            InitializeComponent();
+            this.articulo = seleccionado;
+            Text = "Editar articulo";
         }
 
         private void BtnAceptar_Click(object sender, EventArgs e)
@@ -103,8 +113,8 @@ namespace TPWinForm_equipo0
         {
             // Cargamos los datos de los combo box categoria y marca
 
-            List<Categoria> listaCategorias = new List<Categoria>();
-            List<Marca> listaMarcas = new List<Marca>();
+            List<Categoria> listaCategorias;
+            List<Marca> listaMarcas;
 
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             MarcaNegocio marcaNegocio = new MarcaNegocio();
@@ -115,7 +125,27 @@ namespace TPWinForm_equipo0
                 listaMarcas = marcaNegocio.Listar();
 
                 ComboCategoria.DataSource = listaCategorias;
+                ComboCategoria.ValueMember = "Id";
+                ComboCategoria.DisplayMember = "Nombre";
+
                 ComboMarca.DataSource = listaMarcas;
+                ComboMarca.ValueMember = "Id";
+                ComboMarca.DisplayMember = "Nombre";
+
+                if (articulo != null)
+                {
+                    TxtCodigo.Text = articulo.Codigo;
+                    TxtNombre.Text = articulo.Nombre;
+                    TxtDescripcion.Text = articulo.Descripcion;
+                    TxtPrecio.Text = articulo.Precio.ToString();
+
+                    CargarImagen(articulo.listaImagenes[0].Url);
+                    imagenesArticulo = new BindingList<Imagen>(articulo.listaImagenes);
+
+                    ComboCategoria.SelectedValue = articulo.CategoriaProducto.Id;
+                    ComboMarca.SelectedValue = articulo.MarcaProducto.Id;
+
+                }
 
             }
             catch (Exception ex)

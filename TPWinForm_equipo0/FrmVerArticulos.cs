@@ -102,7 +102,7 @@ namespace TPWinForm_equipo0
 
                 if (!(seleccion.listaImagenes.Count == 0))
                 {
-                    if ((indiceImagenActual-1) < 0)
+                    if ((indiceImagenActual - 1) < 0)
                     {
                         indiceImagenActual = seleccion.listaImagenes.Count() - 1;
                     }
@@ -129,7 +129,7 @@ namespace TPWinForm_equipo0
 
                 if (!(seleccion.listaImagenes.Count == 0))
                 {
-                    if ((indiceImagenActual+1) > seleccion.listaImagenes.Count()-1)
+                    if ((indiceImagenActual + 1) > seleccion.listaImagenes.Count() - 1)
                     {
                         indiceImagenActual = 0;
                     }
@@ -145,6 +145,26 @@ namespace TPWinForm_equipo0
                     PbxImagenArticulo.Image = Properties.Resources.PlaceHolder;
                 }
             }
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(FrmNuevoArticulo))
+                {
+                    return;
+                }
+            }
+
+            Articulo seleccion;
+            seleccion = (Articulo)GrillaArticulos.CurrentRow!.DataBoundItem!;
+
+            FrmNuevoArticulo editar = new FrmNuevoArticulo(seleccion);
+
+            editar.Size = this.Size;
+            editar.StartPosition = FormStartPosition.CenterScreen;
+            editar.ShowDialog();
         }
     }
 }

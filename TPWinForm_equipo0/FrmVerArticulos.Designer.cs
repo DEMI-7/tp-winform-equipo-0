@@ -51,6 +51,7 @@
             BtnEditar.TabIndex = 0;
             BtnEditar.Text = "Editar";
             BtnEditar.UseVisualStyleBackColor = true;
+            BtnEditar.Click += BtnEditar_Click;
             // 
             // PbxImagenArticulo
             // 
