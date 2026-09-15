@@ -44,6 +44,7 @@ namespace Negocio
                 conexion.SeterarConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@Descripcion)");
 
                 conexion.agregarParametro("@Descripcion", nueva.Nombre);
+                conexion.ejecutarAccion();
             }
             catch (Exception)
             {
