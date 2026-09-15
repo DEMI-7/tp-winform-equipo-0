@@ -34,6 +34,8 @@
             GrillaArticulos = new DataGridView();
             TxtBuscador = new TextBox();
             BtnBuscar = new Button();
+            BtnAnteriorImagen = new Button();
+            BtnSiguienteImagen = new Button();
             ((System.ComponentModel.ISupportInitialize)PbxImagenArticulo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GrillaArticulos).BeginInit();
             SuspendLayout();
@@ -41,6 +43,7 @@
             // BtnEditar
             // 
             BtnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnEditar.FlatStyle = FlatStyle.Flat;
             BtnEditar.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnEditar.Location = new Point(481, 381);
             BtnEditar.Name = "BtnEditar";
@@ -96,11 +99,39 @@
             BtnBuscar.UseVisualStyleBackColor = true;
             BtnBuscar.Click += BtnBuscar_Click;
             // 
+            // BtnAnteriorImagen
+            // 
+            BtnAnteriorImagen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnAnteriorImagen.FlatStyle = FlatStyle.Flat;
+            BtnAnteriorImagen.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnAnteriorImagen.Location = new Point(411, 381);
+            BtnAnteriorImagen.Name = "BtnAnteriorImagen";
+            BtnAnteriorImagen.Size = new Size(64, 64);
+            BtnAnteriorImagen.TabIndex = 5;
+            BtnAnteriorImagen.Text = "<";
+            BtnAnteriorImagen.UseVisualStyleBackColor = true;
+            BtnAnteriorImagen.Click += BtnAnteriorImagen_Click;
+            // 
+            // BtnSiguienteImagen
+            // 
+            BtnSiguienteImagen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnSiguienteImagen.FlatStyle = FlatStyle.Flat;
+            BtnSiguienteImagen.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold);
+            BtnSiguienteImagen.Location = new Point(691, 381);
+            BtnSiguienteImagen.Name = "BtnSiguienteImagen";
+            BtnSiguienteImagen.Size = new Size(64, 64);
+            BtnSiguienteImagen.TabIndex = 6;
+            BtnSiguienteImagen.Text = ">";
+            BtnSiguienteImagen.UseVisualStyleBackColor = true;
+            BtnSiguienteImagen.Click += BtnSiguienteImagen_Click;
+            // 
             // FrmVerArticulos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(BtnSiguienteImagen);
+            Controls.Add(BtnAnteriorImagen);
             Controls.Add(BtnBuscar);
             Controls.Add(TxtBuscador);
             Controls.Add(PbxImagenArticulo);
@@ -125,5 +156,7 @@
         private DataGridView GrillaArticulos;
         private TextBox TxtBuscador;
         private Button BtnBuscar;
+        private Button BtnAnteriorImagen;
+        private Button BtnSiguienteImagen;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNuevoArticulo));
             BtnAceptar = new Button();
             LblNombre = new Label();
@@ -46,7 +47,13 @@
             BtnCancelar = new Button();
             ComboMarca = new ComboBox();
             ComboCategoria = new ComboBox();
+            GrillaUrlImagenes = new DataGridView();
+            BtnPegar = new Button();
+            BtnEnter = new Button();
+            ErrorUrlImagen = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)PbxImagenArticulo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)GrillaUrlImagenes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ErrorUrlImagen).BeginInit();
             SuspendLayout();
             // 
             // BtnAceptar
@@ -193,6 +200,7 @@
             TxtUrlImagen.Name = "TxtUrlImagen";
             TxtUrlImagen.Size = new Size(635, 35);
             TxtUrlImagen.TabIndex = 13;
+            TxtUrlImagen.KeyDown += TxtUrlImagen_KeyDown;
             // 
             // BtnCancelar
             // 
@@ -228,11 +236,55 @@
             ComboCategoria.Size = new Size(379, 38);
             ComboCategoria.TabIndex = 16;
             // 
+            // GrillaUrlImagenes
+            // 
+            GrillaUrlImagenes.Anchor = AnchorStyles.Left;
+            GrillaUrlImagenes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GrillaUrlImagenes.EditMode = DataGridViewEditMode.EditProgrammatically;
+            GrillaUrlImagenes.Location = new Point(1281, 47);
+            GrillaUrlImagenes.MultiSelect = false;
+            GrillaUrlImagenes.Name = "GrillaUrlImagenes";
+            GrillaUrlImagenes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            GrillaUrlImagenes.Size = new Size(259, 395);
+            GrillaUrlImagenes.TabIndex = 17;
+            GrillaUrlImagenes.SelectionChanged += GrillaUrlImagenes_SelectionChanged;
+            // 
+            // BtnPegar
+            // 
+            BtnPegar.Anchor = AnchorStyles.Left;
+            BtnPegar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnPegar.Location = new Point(218, 448);
+            BtnPegar.Name = "BtnPegar";
+            BtnPegar.Size = new Size(80, 30);
+            BtnPegar.TabIndex = 18;
+            BtnPegar.Text = "Pegar URL";
+            BtnPegar.UseVisualStyleBackColor = true;
+            BtnPegar.Click += BtnPegar_Click;
+            // 
+            // BtnEnter
+            // 
+            BtnEnter.Anchor = AnchorStyles.Left;
+            BtnEnter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnEnter.Location = new Point(334, 448);
+            BtnEnter.Name = "BtnEnter";
+            BtnEnter.Size = new Size(80, 30);
+            BtnEnter.TabIndex = 19;
+            BtnEnter.Text = "Enter";
+            BtnEnter.UseVisualStyleBackColor = true;
+            BtnEnter.Click += BtnEnter_Click;
+            // 
+            // ErrorUrlImagen
+            // 
+            ErrorUrlImagen.ContainerControl = this;
+            // 
             // FrmNuevoArticulo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1321, 593);
+            ClientSize = new Size(1684, 593);
+            Controls.Add(BtnEnter);
+            Controls.Add(BtnPegar);
+            Controls.Add(GrillaUrlImagenes);
             Controls.Add(ComboCategoria);
             Controls.Add(ComboMarca);
             Controls.Add(BtnCancelar);
@@ -257,6 +309,8 @@
             Text = "Nuevo articulo";
             Load += FrmNuevoArticulo_Load;
             ((System.ComponentModel.ISupportInitialize)PbxImagenArticulo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)GrillaUrlImagenes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ErrorUrlImagen).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -280,5 +334,9 @@
         private Button BtnCancelar;
         private ComboBox ComboMarca;
         private ComboBox ComboCategoria;
+        private DataGridView GrillaUrlImagenes;
+        private Button BtnPegar;
+        private Button BtnEnter;
+        private ErrorProvider ErrorUrlImagen;
     }
 }

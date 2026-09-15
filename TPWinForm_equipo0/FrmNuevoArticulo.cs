@@ -12,6 +12,12 @@ namespace TPWinForm_equipo0
 {
     public partial class FrmNuevoArticulo : Form
     {
+
+        // La binding list es una lista que actualiza automaticamente la grilla
+        // tuve que usarla porque me daba un error la lista comun al actualizarla a mano
+        // fue la unica forma de solucionarlo, igual funciona igual que una lista para nuestro caso y no nos cambia en nada mas
+        BindingList<Imagen> imagenesArticulo = new BindingList<Imagen>();
+
         public FrmNuevoArticulo()
         {
             InitializeComponent();
@@ -57,6 +63,27 @@ namespace TPWinForm_equipo0
 
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 negocio.NuevoRegistro(nuevo);
+
+                // en este bloque guardamos las imagenes
+                int idNuevoArticulo = negocio.ObtenerIdPorCodigo(nuevo.Codigo);
+
+                if (idNuevoArticulo > 0 && imagenesArticulo.Count > 0)
+                {
+                    ImagenNegocio negocioImagen = new ImagenNegocio();
+
+                    try
+                    {
+                        foreach (Imagen img in imagenesArticulo)
+                        {
+                            negocioImagen.GuardarImagen(idNuevoArticulo, img.Url);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Las imagenes no se agregaron correctamente");
+                    }
+                }
+
                 MessageBox.Show("Agregado exitosamente");
                 Close();
             }
@@ -96,6 +123,105 @@ namespace TPWinForm_equipo0
                 MessageBox.Show(ex.ToString());
             }
 
+            PbxImagenArticulo.Image = Properties.Resources.PlaceHolder;
+
+            GrillaUrlImagenes.DataSource = imagenesArticulo;
+        }
+
+        private bool CargarImagen(string imagen)
+        {
+            try
+            {
+                PbxImagenArticulo.Load(imagen);
+                return true;
+            }
+            catch (Exception)
+            {
+                PbxImagenArticulo.Image = Properties.Resources.PlaceHolder;
+                return false;
+            }
+        }
+
+        // Al darle al enter del teclado intenta cargar la imagen y la suma a la grilla
+        private void TxtUrlImagen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+
+                string nuevaUrl = TxtUrlImagen.Text.Trim();
+
+                if (string.IsNullOrEmpty(nuevaUrl))
+                {
+                    return;
+                }
+                else if (CargarImagen(nuevaUrl))
+                {
+                    imagenesArticulo.Add(new Imagen(nuevaUrl));
+
+                    TxtUrlImagen.Clear();
+                    TxtUrlImagen.Focus();
+                }
+                else
+                {
+                    TxtUrlImagen.Clear();
+                    TxtUrlImagen.Focus();
+                    ErrorUrlImagen.SetError(TxtUrlImagen, "La URL no es válida o es inaccesible.");
+                }
+            }
+        }
+
+        // Pega lo que tenga el portapapeles en el campo url imagen
+        private void BtnPegar_Click(object sender, EventArgs e)
+        {
+            ErrorUrlImagen.SetError(TxtUrlImagen, "");
+
+            if (Clipboard.ContainsText() && !string.IsNullOrWhiteSpace(Clipboard.GetText()))
+            {
+                TxtUrlImagen.Text = Clipboard.GetText().Trim();
+                TxtUrlImagen.Focus();
+                TxtUrlImagen.SelectionStart = TxtUrlImagen.Text.Length;
+            }
+            else
+            {
+                ErrorUrlImagen.SetError(TxtUrlImagen, "El portapapeles no contiene texto o una URL válida.");
+            }
+        }
+
+        // Al tocar el boton que dice "enter" hace lo mismo que con el teclado
+        private void BtnEnter_Click(object sender, EventArgs e)
+        {
+            string nuevaUrl = TxtUrlImagen.Text.Trim();
+
+            if (string.IsNullOrEmpty(nuevaUrl))
+            {
+                return;
+            }
+            else if (CargarImagen(nuevaUrl))
+            {
+                imagenesArticulo.Add(new Imagen(nuevaUrl));
+
+                TxtUrlImagen.Clear();
+                TxtUrlImagen.Focus();
+            }
+            else
+            {
+                TxtUrlImagen.Clear();
+                TxtUrlImagen.Focus();
+                ErrorUrlImagen.SetError(TxtUrlImagen, "La URL no es válida o es inaccesible.");
+            }
+        }
+
+        // Cambiar imagen en la seleccion de la grilla
+        private void GrillaUrlImagenes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (GrillaUrlImagenes.CurrentRow != null && GrillaUrlImagenes.CurrentRow.DataBoundItem != null)
+            {
+                Imagen seleccion = (Imagen)GrillaUrlImagenes.CurrentRow.DataBoundItem;
+
+                CargarImagen(seleccion.Url);
+                
+            }
         }
     }
 }

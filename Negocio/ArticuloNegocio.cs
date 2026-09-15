@@ -73,8 +73,7 @@ namespace Negocio
 
 			try
 			{
-				conexion.SeterarConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio)" +
-					" values (@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio)");
+				conexion.SeterarConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) values (@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio)");
 				conexion.agregarParametro("@Codigo", nuevo.Codigo);
                 conexion.agregarParametro("@Nombre", nuevo.Nombre);
 
@@ -111,6 +110,36 @@ namespace Negocio
 						articulo.listaImagenes.Add(imagen);
 					}
 				}
+			}
+		}
+
+		public int ObtenerIdPorCodigo(string codigo)
+		{
+			AccesoDatos conexion = new AccesoDatos();
+
+			int idArticulo = 0;
+
+			try
+			{
+				conexion.SeterarConsulta("SELECT Id FROM ARTICULOS WHERE Codigo = @Codigo");
+				conexion.agregarParametro("@Codigo", codigo);
+				conexion.EjecutarLectura();
+
+				while (conexion.Lector.Read())
+				{
+					idArticulo = (int)conexion.Lector["Id"];
+				}
+
+				return idArticulo;
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			finally
+			{
+				conexion.CerrarConexion();
 			}
 		}
     }

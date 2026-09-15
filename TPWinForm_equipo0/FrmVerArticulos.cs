@@ -13,6 +13,8 @@ namespace TPWinForm_equipo0
 {
     public partial class FrmVerArticulos : Form
     {
+        int indiceImagenActual = 0;
+
         private List<Articulo> listaArticulos = null!;
         public FrmVerArticulos()
         {
@@ -26,6 +28,9 @@ namespace TPWinForm_equipo0
 
         private void GrillaArticulos_SelectionChanged(object sender, EventArgs e)
         {
+            // cuando seleccionamos otro articulo el indice de imagen seleccionada se pone en 0 para la nueva seleccion
+            indiceImagenActual = 0;
+
             if (GrillaArticulos.CurrentRow != null && GrillaArticulos.CurrentRow.DataBoundItem != null)
             {
                 Articulo seleccion = (Articulo)GrillaArticulos.CurrentRow.DataBoundItem;
@@ -86,6 +91,60 @@ namespace TPWinForm_equipo0
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        // Cambia a la imagen anterior teniendo en cuenta el caso limite que ya estemos en la primer imagen, te llevaria a la ultima
+        private void BtnAnteriorImagen_Click(object sender, EventArgs e)
+        {
+            if (GrillaArticulos.CurrentRow != null && GrillaArticulos.CurrentRow.DataBoundItem != null)
+            {
+                Articulo seleccion = (Articulo)GrillaArticulos.CurrentRow.DataBoundItem;
+
+                if (!(seleccion.listaImagenes.Count == 0))
+                {
+                    if ((indiceImagenActual-1) < 0)
+                    {
+                        indiceImagenActual = seleccion.listaImagenes.Count() - 1;
+                    }
+                    else
+                    {
+                        indiceImagenActual--;
+                    }
+
+                    CargarImagen(seleccion.listaImagenes[indiceImagenActual].Url);
+                }
+                else
+                {
+                    PbxImagenArticulo.Image = Properties.Resources.PlaceHolder;
+                }
+            }
+        }
+
+        // Cambia a la imagen anterior, el caso limite si estamos en la ultima imagen te llevaria a la primera
+        private void BtnSiguienteImagen_Click(object sender, EventArgs e)
+        {
+            if (GrillaArticulos.CurrentRow != null && GrillaArticulos.CurrentRow.DataBoundItem != null)
+            {
+                Articulo seleccion = (Articulo)GrillaArticulos.CurrentRow.DataBoundItem;
+
+                if (!(seleccion.listaImagenes.Count == 0))
+                {
+                    if ((indiceImagenActual+1) > seleccion.listaImagenes.Count()-1)
+                    {
+                        indiceImagenActual = 0;
+                    }
+                    else
+                    {
+                        indiceImagenActual++;
+                    }
+
+                    CargarImagen(seleccion.listaImagenes[indiceImagenActual].Url);
+                }
+                else
+                {
+                    PbxImagenArticulo.Image = Properties.Resources.PlaceHolder;
+                }
+            }
         }
     }
 }

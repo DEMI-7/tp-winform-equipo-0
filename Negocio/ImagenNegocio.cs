@@ -6,7 +6,7 @@ using Dominio;
 
 namespace Negocio
 {
-    internal class ImagenNegocio
+    public class ImagenNegocio
     {
         public List<Imagen> Listar()
         {
@@ -37,6 +37,25 @@ namespace Negocio
             finally
             {
                 conexion.CerrarConexion();
+            }
+        }
+
+        public void GuardarImagen(int idArticulo, string url)
+        {
+            AccesoDatos conexion = new AccesoDatos();
+
+            try
+            {
+                conexion.SeterarConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@IdArticulo,@ImagenUrl)");
+                conexion.agregarParametro("@IdArticulo", idArticulo);
+                conexion.agregarParametro("@ImagenUrl", url);
+                conexion.ejecutarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
