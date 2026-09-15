@@ -55,5 +55,46 @@ namespace Negocio
                 conexion.CerrarConexion(); //cerramos conxion con la bd
             }
         }
+        public bool CategoriaEnUso(int idCategoria)
+        {
+            AccesoDatos conexion = new AccesoDatos();
+            try
+            {
+                conexion.SeterarConsulta("SELECT Id FROM ARTICULOS WHERE IdCategoria = @IdCategoria");
+                conexion.agregarParametro("@IdCategoria", idCategoria);
+                conexion.EjecutarLectura();
+                if (conexion.Lector.Read())
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+        public void Eliminar(int idCategoria)
+        {
+            AccesoDatos conexion = new AccesoDatos();
+            try
+            {
+                conexion.SeterarConsulta("DELETE FROM CATEGORIAS WHERE Id = @IdCategoria");
+                conexion.agregarParametro("@IdCategoria", idCategoria);
+                conexion.ejecutarAccion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
     }
 }
