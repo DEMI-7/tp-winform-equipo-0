@@ -78,6 +78,22 @@ namespace Negocio
             return lista.Any(x => x.Nombre.ToLower() == nombre.ToLower  ());
         }
 
+        public void Eliminar (int id )
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.limpiarParametros();
+                datos.SeterarConsulta("Delete from Marcas where Id = @Id");
+                datos.agregarParametro("@Id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
 
     }
 }
