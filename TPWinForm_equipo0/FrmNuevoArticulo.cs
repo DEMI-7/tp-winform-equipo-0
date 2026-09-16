@@ -58,7 +58,7 @@ namespace TPWinForm_equipo0
                 TxtCodigo.Focus();
                 return;
             }
-            else if (articulo!.Codigo != TxtCodigo.Text)
+            else if (articulo != null && articulo.Codigo != TxtCodigo.Text)
             {
                 if (negocio.ObtenerIdPorCodigo(TxtCodigo.Text) != 0)
                 {
