@@ -105,6 +105,7 @@
             Name = "FrmNuevaMarca";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Nueva Marca";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();

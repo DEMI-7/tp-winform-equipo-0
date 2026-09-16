@@ -68,6 +68,7 @@
             Controls.Add(lblTitulo);
             Name = "FrmVerMarcas";
             Text = "Ver Marcass";
+            WindowState = FormWindowState.Maximized;
             Load += FrmVerMarcas_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMarcas).EndInit();
             ResumeLayout(false);
