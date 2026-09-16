@@ -67,6 +67,7 @@
             // GrillaArticulos
             // 
             GrillaArticulos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            GrillaArticulos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             GrillaArticulos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GrillaArticulos.EditMode = DataGridViewEditMode.EditProgrammatically;
             GrillaArticulos.Location = new Point(12, 60);

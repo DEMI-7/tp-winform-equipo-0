@@ -37,6 +37,9 @@ namespace TPWinForm_equipo0
         {
             //Articulo nuevo = new Articulo();
 
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            ImagenNegocio negocioImagen = new ImagenNegocio();
+
             if (string.IsNullOrWhiteSpace(TxtCodigo.Text))
             {
                 MessageBox.Show("El campo Código es obligatorio.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -48,6 +51,21 @@ namespace TPWinForm_equipo0
                 MessageBox.Show("El campo Nombre es obligatorio.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TxtCodigo.Focus();
                 return;
+            }
+            if (articulo == null && negocio.ObtenerIdPorCodigo(TxtCodigo.Text) != 0)
+            {
+                MessageBox.Show("El Codigo ya esta en uso.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TxtCodigo.Focus();
+                return;
+            }
+            else if (articulo!.Codigo != TxtCodigo.Text)
+            {
+                if (negocio.ObtenerIdPorCodigo(TxtCodigo.Text) != 0)
+                {
+                    MessageBox.Show("El Codigo ya esta en uso.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    TxtCodigo.Focus();
+                    return;
+                }
             }
 
 
@@ -75,9 +93,6 @@ namespace TPWinForm_equipo0
                 {
                     MessageBox.Show("El precio ingresado no es valido, solo se permiten números.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
-                ArticuloNegocio negocio = new ArticuloNegocio();
-                ImagenNegocio negocioImagen = new ImagenNegocio();
 
                 if (articulo.Id != 0)
                 {
