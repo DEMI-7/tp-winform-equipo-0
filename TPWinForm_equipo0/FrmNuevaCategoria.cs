@@ -47,5 +47,10 @@ namespace TPWinForm_equipo0
                 MessageBox.Show("Error al agregar la categoria." + ex.ToString);
             }
         }
+
+        private void btnVolverCat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
