@@ -55,6 +55,7 @@
             btnBuscarCat.TabIndex = 1;
             btnBuscarCat.Text = "Buscar Categoria";
             btnBuscarCat.UseVisualStyleBackColor = true;
+            btnBuscarCat.Click += btnBuscarCat_Click;
             // 
             // txtBuscarCat
             // 

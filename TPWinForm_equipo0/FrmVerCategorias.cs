@@ -10,8 +10,11 @@ using Negocio;
 
 namespace TPWinForm_equipo0
 {
+
     public partial class FrmVerCategorias : Form
     {
+        //creado para el boton de buscar, las categorias quedan cargadas en listaCategorias
+        private List<Categoria> listaCategorias;
         public FrmVerCategorias()
         {
             InitializeComponent();
@@ -29,7 +32,7 @@ namespace TPWinForm_equipo0
             CategoriaNegocio negocio = new CategoriaNegocio();
             try
             {
-
+                listaCategorias = negocio.Listar();
                 GrillaCategorias.DataSource = negocio.Listar();
                 GrillaCategorias.Columns["Id"]!.Visible = false;
             }
@@ -45,7 +48,7 @@ namespace TPWinForm_equipo0
 
             try
             {   // busque hacer para que sea el seleccionado
-                seleccionada = (Categoria)GrillaCategorias.CurrentRow.DataBoundItem; 
+                seleccionada = (Categoria)GrillaCategorias.CurrentRow.DataBoundItem;
                 if (negocio.CategoriaEnUso(seleccionada.Id))
                 {
                     MessageBox.Show("No se puede eliminar, categoria en uso");
@@ -56,7 +59,7 @@ namespace TPWinForm_equipo0
                     "¿Está seguro que desea eliminar la categoría?",
                     "Eliminar categoría",
                     MessageBoxButtons.YesNo);
-                if(respuesta == DialogResult.Yes)
+                if (respuesta == DialogResult.Yes)
                 {
                     negocio.Eliminar(seleccionada.Id);
                     MessageBox.Show("Categoria eliminada correctamente");
@@ -72,6 +75,20 @@ namespace TPWinForm_equipo0
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnBuscarCat_Click(object sender, EventArgs e)
+        {
+            //aca me tuve que ayudar con la ia, basicamente la lista la comparamos con
+            // el filtro (texto que ingresa a mano el usuario)
+            // lo pasa a mayus para que busque cualquier coincidencia
+            List<Categoria> lista;
+            string filtro = txtBuscarCat.Text;
+            lista = listaCategorias.FindAll
+                (x => x.Nombre.ToUpper().Contains(filtro.ToUpper())
+                );
+            GrillaCategorias.DataSource = lista;
+
         }
     }
 }
