@@ -40,7 +40,7 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Microsoft Sans Serif", 13F);
-            lblTitulo.Location = new Point(23, 18);
+            lblTitulo.Location = new Point(37, 9);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(128, 22);
             lblTitulo.TabIndex = 0;
@@ -69,14 +69,14 @@
             dgvMarcas.ReadOnly = true;
             dgvMarcas.RowHeadersVisible = false;
             dgvMarcas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvMarcas.Size = new Size(595, 248);
+            dgvMarcas.Size = new Size(953, 334);
             dgvMarcas.TabIndex = 2;
             // 
             // btnEliminar
             // 
             btnEliminar.BackColor = Color.FromArgb(255, 128, 128);
             btnEliminar.ForeColor = SystemColors.ButtonFace;
-            btnEliminar.Location = new Point(57, 364);
+            btnEliminar.Location = new Point(37, 467);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(156, 30);
             btnEliminar.TabIndex = 3;
@@ -86,7 +86,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(235, 364);
+            btnCancelar.Location = new Point(256, 467);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(87, 30);
             btnCancelar.TabIndex = 4;
@@ -98,7 +98,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1131, 536);
             Controls.Add(btnCancelar);
             Controls.Add(btnEliminar);
             Controls.Add(dgvMarcas);
@@ -106,6 +106,7 @@
             Controls.Add(lblTitulo);
             Name = "FrmEliminarMarca";
             Text = "FrmEliminarMarca";
+            WindowState = FormWindowState.Maximized;
             Load += FrmEliminarMarca_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMarcas).EndInit();
             ResumeLayout(false);

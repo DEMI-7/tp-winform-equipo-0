@@ -86,6 +86,7 @@ namespace TPWinForm_equipo0
                     return;
                 }
             }
+            CerrarFormulariosHijos();
 
             FrmNuevaMarca ventana = new FrmNuevaMarca();
             ventana.MdiParent = this;
@@ -187,6 +188,9 @@ namespace TPWinForm_equipo0
                     return;
                 }
             }
+
+            CerrarFormulariosHijos();
+
             FrmEliminarMarca ventana = new FrmEliminarMarca();
             ventana.MdiParent = this;
             ventana.Show();

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            lblTitulo = new Label();
             lblNombre = new Label();
             txtNombre = new TextBox();
             btnGuardar = new Button();
@@ -38,38 +37,28 @@
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(133, 27);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(77, 15);
-            lblTitulo.TabIndex = 0;
-            lblTitulo.Text = "Nueva Marca";
-            lblTitulo.Click += label1_Click;
-            // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Segoe UI", 13F);
             lblNombre.Location = new Point(61, 71);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(57, 15);
+            lblNombre.Size = new Size(87, 25);
             lblNombre.TabIndex = 1;
             lblNombre.Text = "Nombre: ";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(124, 71);
+            txtNombre.Location = new Point(173, 74);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(100, 23);
+            txtNombre.Size = new Size(257, 23);
             txtNombre.TabIndex = 2;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(84, 123);
+            btnGuardar.Location = new Point(61, 172);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(75, 23);
+            btnGuardar.Size = new Size(112, 66);
             btnGuardar.TabIndex = 3;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -77,9 +66,9 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(217, 123);
+            btnCancelar.Location = new Point(302, 172);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.Size = new Size(128, 66);
             btnCancelar.TabIndex = 4;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -98,7 +87,6 @@
             Controls.Add(btnGuardar);
             Controls.Add(txtNombre);
             Controls.Add(lblNombre);
-            Controls.Add(lblTitulo);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -117,8 +105,6 @@
         }
 
         #endregion
-
-        private Label lblTitulo;
         private Label lblNombre;
         private TextBox txtNombre;
         private Button btnGuardar;

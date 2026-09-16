@@ -48,29 +48,51 @@ namespace TPWinForm_equipo0
                 MessageBox.Show("Debe seleccionar una marca para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Marca seleccionada = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
-
-            DialogResult respuesta = MessageBox.Show($"¿Está seguro que desea eliminar la marca '{seleccionada.Nombre}'?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-             
-            if (respuesta != DialogResult.Yes)
+            var seleccionada = dgvMarcas.CurrentRow.DataBoundItem as Marca;
+            if (seleccionada == null)
             {
-                return; //el user  cancelo ; 
-            }  
+                MessageBox.Show("Seleccione una marca válida.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             MarcaNegocio negocio = new MarcaNegocio();
 
             try
-            {
-                negocio.Eliminar(seleccionada.Id);
-                MessageBox.Show("Marca eliminada correctamente.", "Éxito",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            { 
 
-                cargamosGrilla(); // actualizamos la grilla después de eliminar
+            if (negocio.tieneArticulosAsociados(seleccionada.Id))
+            {
+                MessageBox.Show(
+           "No se puede eliminar la marca \"" + seleccionada.Nombre + "\" " + "porque tiene articulos asociados.\n\n" +
+           "Primero elimina o reasigna esos artículos.",
+           "No se puede eliminar",
+           MessageBoxButtons.OK,
+           MessageBoxIcon.Warning  );
+                return;
+            }  
+            
+            DialogResult     respuesta = MessageBox.Show
+                ("¿Esta seguro de que desea eliminar la marca \"" + seleccionada.Nombre + "\"?",
+                 "Confirmar eliminación",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Question);
+
+            if (respuesta != DialogResult.Yes) return; 
+             
+            negocio.Eliminar(seleccionada.Id);
+
+
+            MessageBox.Show("Marca eliminada correctamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            cargamosGrilla(); // actualizamos la grilla después de eliminar
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al eliminar la marca: " + ex.Message,
-                                "Error ## ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 "Error #404 ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
