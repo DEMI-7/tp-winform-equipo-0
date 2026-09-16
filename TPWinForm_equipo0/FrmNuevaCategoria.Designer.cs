@@ -70,6 +70,7 @@
             btnVolverCat.TabIndex = 3;
             btnVolverCat.Text = "Volver";
             btnVolverCat.UseVisualStyleBackColor = true;
+            btnVolverCat.Click += btnVolverCat_Click;
             // 
             // FrmNuevaCategoria
             // 
