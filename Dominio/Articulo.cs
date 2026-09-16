@@ -7,7 +7,8 @@ namespace Dominio
 {
     public class Articulo
     {
-        public int Id {  get; set; }
+        [Browsable(false)]
+        public int Id { get; set; } = 0;
         [DisplayName("Código")]
         public string Codigo { get; set; } = string.Empty;
         public string Nombre {  get; set; } = string.Empty;

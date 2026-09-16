@@ -51,6 +51,7 @@
             BtnPegar = new Button();
             BtnEnter = new Button();
             ErrorUrlImagen = new ErrorProvider(components);
+            BtnEliminarImagen = new Button();
             ((System.ComponentModel.ISupportInitialize)PbxImagenArticulo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GrillaUrlImagenes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ErrorUrlImagen).BeginInit();
@@ -277,11 +278,24 @@
             // 
             ErrorUrlImagen.ContainerControl = this;
             // 
+            // BtnEliminarImagen
+            // 
+            BtnEliminarImagen.Anchor = AnchorStyles.Left;
+            BtnEliminarImagen.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            BtnEliminarImagen.Location = new Point(1319, 448);
+            BtnEliminarImagen.Name = "BtnEliminarImagen";
+            BtnEliminarImagen.Size = new Size(190, 30);
+            BtnEliminarImagen.TabIndex = 20;
+            BtnEliminarImagen.Text = "Eliminar imagen";
+            BtnEliminarImagen.UseVisualStyleBackColor = true;
+            BtnEliminarImagen.Click += BtnEliminarImagen_Click;
+            // 
             // FrmNuevoArticulo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1684, 593);
+            Controls.Add(BtnEliminarImagen);
             Controls.Add(BtnEnter);
             Controls.Add(BtnPegar);
             Controls.Add(GrillaUrlImagenes);
@@ -338,5 +352,6 @@
         private Button BtnPegar;
         private Button BtnEnter;
         private ErrorProvider ErrorUrlImagen;
+        private Button BtnEliminarImagen;
     }
 }

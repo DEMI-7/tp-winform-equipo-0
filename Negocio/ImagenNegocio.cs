@@ -58,5 +58,90 @@ namespace Negocio
                 throw;
             }
         }
+
+        public List<Imagen> ListarPorIdArticulo(int idArticulo)
+        {
+            List<Imagen> listado = new List<Imagen>();
+            AccesoDatos conexion = new AccesoDatos();
+
+            try
+            {
+                conexion.SeterarConsulta("Select Id, IdArticulo, ImagenUrl as Url from Imagenes where IdArticulo = @IdArticulo");
+                conexion.agregarParametro("IdArticulo", idArticulo);
+                conexion.EjecutarLectura();
+
+                while (conexion.Lector.Read())
+                {
+                    Imagen aux = new Imagen();
+
+                    aux.Id = (int)conexion.Lector["Id"];
+                    aux.IdArticulo = (int)conexion.Lector["IdArticulo"];
+                    aux.Url = (string)conexion.Lector["Url"];
+
+                    listado.Add(aux);
+                }
+
+                return listado;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+
+        }
+
+        private void EliminarImagen(int id)
+        {
+            AccesoDatos conexion = new AccesoDatos();
+
+            try
+            {
+                conexion.SeterarConsulta("DELETE FROM Imagenes WHERE Id = @Id");
+                conexion.agregarParametro("Id", id);
+                conexion.ejecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void Modificar(int idArticulo, List<Imagen> listaImagenesModificada)
+        {
+            try
+            {
+                // Obtengo la lista de imagenes que ya tenia cargadas de antes para ese articulo
+                List<Imagen> listadoBase = ListarPorIdArticulo(idArticulo);
+
+                // Busco las que ya no estan y las borro de la BDD
+                foreach (Imagen img in listadoBase)
+                {
+                    if (!listaImagenesModificada.Exists(x => x.Id == img.Id))
+                    {
+                        EliminarImagen(img.Id);
+                    }
+                }
+
+                // Hacer los insert
+                foreach (Imagen img in listaImagenesModificada)
+                {
+                    if (img.Id == 0)
+                    {
+                        GuardarImagen(idArticulo, img.Url);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

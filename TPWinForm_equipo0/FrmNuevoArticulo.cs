@@ -26,7 +26,7 @@ namespace TPWinForm_equipo0
             InitializeComponent();
         }
 
-        public FrmNuevoArticulo (Articulo seleccionado)
+        public FrmNuevoArticulo(Articulo seleccionado)
         {
             InitializeComponent();
             this.articulo = seleccionado;
@@ -35,7 +35,7 @@ namespace TPWinForm_equipo0
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
-            Articulo nuevo = new Articulo();
+            //Articulo nuevo = new Articulo();
 
             if (string.IsNullOrWhiteSpace(TxtCodigo.Text))
             {
@@ -53,18 +53,23 @@ namespace TPWinForm_equipo0
 
             try
             {
-                nuevo.Codigo = TxtCodigo.Text;
-                nuevo.Nombre = TxtNombre.Text;
-                nuevo.Descripcion = TxtDescripcion.Text;
-                nuevo.CategoriaProducto = (Categoria)ComboCategoria.SelectedItem!;
-                nuevo.MarcaProducto = (Marca)ComboMarca.SelectedItem!;
+                if (articulo == null)
+                {
+                    articulo = new Articulo();
+                }
+
+                articulo.Codigo = TxtCodigo.Text;
+                articulo.Nombre = TxtNombre.Text;
+                articulo.Descripcion = TxtDescripcion.Text;
+                articulo.CategoriaProducto = (Categoria)ComboCategoria.SelectedItem!;
+                articulo.MarcaProducto = (Marca)ComboMarca.SelectedItem!;
                 if (string.IsNullOrWhiteSpace(TxtPrecio.Text))
                 {
-                    nuevo.Precio = 0;
+                    articulo.Precio = 0;
                 }
                 else if (decimal.TryParse(TxtPrecio.Text, out decimal precioIngresado))
                 {
-                    nuevo.Precio = precioIngresado;
+                    articulo.Precio = precioIngresado;
                 }
                 else
                 {
@@ -72,29 +77,47 @@ namespace TPWinForm_equipo0
                 }
 
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                negocio.NuevoRegistro(nuevo);
+                ImagenNegocio negocioImagen = new ImagenNegocio();
 
-                // en este bloque guardamos las imagenes
-                int idNuevoArticulo = negocio.ObtenerIdPorCodigo(nuevo.Codigo);
-
-                if (idNuevoArticulo > 0 && imagenesArticulo.Count > 0)
+                if (articulo.Id != 0)
                 {
-                    ImagenNegocio negocioImagen = new ImagenNegocio();
-
                     try
                     {
-                        foreach (Imagen img in imagenesArticulo)
-                        {
-                            negocioImagen.GuardarImagen(idNuevoArticulo, img.Url);
-                        }
+                        negocio.Modificar(articulo);
+                        negocioImagen.Modificar(articulo.Id, imagenesArticulo.ToList());
+
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Las imagenes no se agregaron correctamente");
+                        MessageBox.Show("Error al modificar");
                     }
+
+                }
+                else
+                {
+                    negocio.NuevoRegistro(articulo);
+
+                    // en este bloque guardamos las imagenes
+                    int idNuevoArticulo = negocio.ObtenerIdPorCodigo(articulo.Codigo);
+
+                    if (idNuevoArticulo > 0 && imagenesArticulo.Count > 0)
+                    {
+
+                        try
+                        {
+                            foreach (Imagen img in imagenesArticulo)
+                            {
+                                negocioImagen.GuardarImagen(idNuevoArticulo, img.Url);
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Las imagenes no se agregaron correctamente");
+                        }
+                    }
+                    MessageBox.Show("Agregado exitosamente");
                 }
 
-                MessageBox.Show("Agregado exitosamente");
                 Close();
             }
             catch (Exception ex)
@@ -139,7 +162,15 @@ namespace TPWinForm_equipo0
                     TxtDescripcion.Text = articulo.Descripcion;
                     TxtPrecio.Text = articulo.Precio.ToString();
 
-                    CargarImagen(articulo.listaImagenes[0].Url);
+                    if (!(articulo.listaImagenes.Count == 0))
+                    {
+                        CargarImagen(articulo.listaImagenes[0].Url);
+                    }
+                    else
+                    {
+                        PbxImagenArticulo.Image = Properties.Resources.PlaceHolder;
+                    }
+
                     imagenesArticulo = new BindingList<Imagen>(articulo.listaImagenes);
 
                     ComboCategoria.SelectedValue = articulo.CategoriaProducto.Id;
@@ -250,7 +281,30 @@ namespace TPWinForm_equipo0
                 Imagen seleccion = (Imagen)GrillaUrlImagenes.CurrentRow.DataBoundItem;
 
                 CargarImagen(seleccion.Url);
-                
+
+            }
+        }
+
+        private void BtnEliminarImagen_Click(object sender, EventArgs e)
+        {
+            if (GrillaUrlImagenes.CurrentRow != null && GrillaUrlImagenes.CurrentRow.DataBoundItem != null)
+            {
+                DialogResult respuesta = MessageBox.Show("¿Seguro que vas a borrar esta foto?", "Confirmar eliminación",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    Imagen seleccion = (Imagen)GrillaUrlImagenes.CurrentRow.DataBoundItem;
+                    imagenesArticulo.Remove(seleccion);
+
+                    if (!(imagenesArticulo.Count == 0))
+                    {
+                        CargarImagen(imagenesArticulo[0].Url);
+                    }
+                    else
+                    {
+                        PbxImagenArticulo.Image = Properties.Resources.PlaceHolder;
+                    }
+                }
             }
         }
     }

@@ -66,10 +66,6 @@ namespace TPWinForm_equipo0
                 listaArticulos = negocio.Listar();
                 GrillaArticulos.DataSource = listaArticulos;
 
-                // oculto el Id interno de la base de datos
-
-                GrillaArticulos.Columns["Id"]!.Visible = false;
-
                 CargarImagen(listaArticulos[0].listaImagenes[0].Url);
             }
             catch (Exception ex)
@@ -165,6 +161,7 @@ namespace TPWinForm_equipo0
             editar.Size = this.Size;
             editar.StartPosition = FormStartPosition.CenterScreen;
             editar.ShowDialog();
+            CargarGrilla();
         }
     }
 }

@@ -142,5 +142,31 @@ namespace Negocio
 				conexion.CerrarConexion();
 			}
 		}
+
+		public void Modificar(Articulo articulo)
+		{
+			AccesoDatos conexion = new AccesoDatos();
+
+			try
+			{
+				conexion.SeterarConsulta("UPDATE ARTICULOS SET Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio WHERE Id = @Id");
+
+				conexion.agregarParametro("@Id", articulo.Id);
+                conexion.agregarParametro("@Codigo", articulo.Codigo);
+                conexion.agregarParametro("@Nombre", articulo.Nombre);
+                conexion.agregarParametro("@Descripcion", articulo.Descripcion);
+                conexion.agregarParametro("@IdMarca", articulo.MarcaProducto.Id);
+                conexion.agregarParametro("@IdCategoria", articulo.CategoriaProducto.Id);
+                conexion.agregarParametro("@Precio", articulo.Precio);
+
+				conexion.ejecutarAccion();
+            }
+			catch (Exception)
+			{
+
+				throw;
+			}
+
+		}
     }
 }

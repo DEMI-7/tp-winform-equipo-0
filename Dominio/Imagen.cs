@@ -9,9 +9,9 @@ namespace Dominio
     public class Imagen
     {
         [Browsable(false)]
-        public int Id { get; set; }
+        public int Id { get; set; } = 0;
         [Browsable(false)]
-        public int IdArticulo { get; set; }
+        public int IdArticulo { get; set; } = 0;
         public string Url { get; set; } = string.Empty;
 
         public Imagen()
