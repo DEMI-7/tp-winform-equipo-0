@@ -20,7 +20,7 @@ namespace Negocio
 
            try
             {
-                datos.SeterarConsulta ("Select Id, Descripcion From Marcas");
+                datos.SetearConsulta ("Select Id, Descripcion From Marcas");
 
                 datos.EjecutarLectura();
 
@@ -55,7 +55,7 @@ namespace Negocio
             try
             {
                 datos.limpiarParametros();
-                datos.SeterarConsulta("Insert into Marcas (Descripcion) values (@Descripcion)");
+                datos.SetearConsulta("Insert into Marcas (Descripcion) values (@Descripcion)");
                 datos.agregarParametro("@Descripcion", nueva.Nombre);
                 datos.ejecutarAccion();
 
@@ -84,7 +84,7 @@ namespace Negocio
             try
             {
                 datos.limpiarParametros();
-                datos.SeterarConsulta("Delete from Marcas where Id = @Id");
+                datos.SetearConsulta("Delete from Marcas where Id = @Id");
                 datos.agregarParametro("@Id", id);
                 datos.ejecutarAccion();
             }
@@ -102,7 +102,7 @@ namespace Negocio
             try
             {
                 datos.limpiarParametros();
-                datos.SeterarConsulta("SELECT COUNT(*) FROM ARTICULOS WHERE IdMarca = @idMarca");
+                datos.SetearConsulta("SELECT COUNT(*) FROM ARTICULOS WHERE IdMarca = @idMarca");
                 datos.agregarParametro("@idMarca", idMarca);
                 datos.EjecutarLectura();
 

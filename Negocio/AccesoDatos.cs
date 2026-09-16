@@ -23,7 +23,7 @@ namespace Negocio
         }
 
         // Recibe la consulta SQL que sera ejecutada
-        public void SeterarConsulta(string consulta)
+        public void SetearConsulta(string consulta)
         {
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = consulta;

@@ -188,9 +188,10 @@ namespace TPWinForm_equipo0
                 }
             }
             FrmEliminarMarca ventana = new FrmEliminarMarca();
-            ventana.MdiParent = this;   
+            ventana.MdiParent = this;
             ventana.Show();
         }
+
     }
 
 }

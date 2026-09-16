@@ -45,7 +45,6 @@
             BtnCategorias = new Button();
             PnlOpcionesCategorias = new Panel();
             BtnVerCategorias = new Button();
-            BtnEliminarCategoria = new Button();
             BtnNuevaCategoria = new Button();
             PbxLogo = new PictureBox();
             bindingSource1 = new BindingSource(components);
@@ -227,12 +226,11 @@
             // PnlOpcionesCategorias
             // 
             PnlOpcionesCategorias.Controls.Add(BtnVerCategorias);
-            PnlOpcionesCategorias.Controls.Add(BtnEliminarCategoria);
             PnlOpcionesCategorias.Controls.Add(BtnNuevaCategoria);
             PnlOpcionesCategorias.Location = new Point(3, 385);
             PnlOpcionesCategorias.Margin = new Padding(3, 0, 3, 3);
             PnlOpcionesCategorias.Name = "PnlOpcionesCategorias";
-            PnlOpcionesCategorias.Size = new Size(183, 125);
+            PnlOpcionesCategorias.Size = new Size(183, 93);
             PnlOpcionesCategorias.TabIndex = 10;
             // 
             // BtnVerCategorias
@@ -248,24 +246,12 @@
             BtnVerCategorias.UseVisualStyleBackColor = false;
             BtnVerCategorias.Click += BtnVerCategorias_Click;
             // 
-            // BtnEliminarCategoria
-            // 
-            BtnEliminarCategoria.BackColor = Color.White;
-            BtnEliminarCategoria.FlatStyle = FlatStyle.Flat;
-            BtnEliminarCategoria.Font = new Font("Segoe UI Semibold", 12.7F);
-            BtnEliminarCategoria.Location = new Point(2, 85);
-            BtnEliminarCategoria.Name = "BtnEliminarCategoria";
-            BtnEliminarCategoria.Size = new Size(170, 37);
-            BtnEliminarCategoria.TabIndex = 9;
-            BtnEliminarCategoria.Text = "Eliminar categoría";
-            BtnEliminarCategoria.UseVisualStyleBackColor = false;
-            // 
             // BtnNuevaCategoria
             // 
             BtnNuevaCategoria.BackColor = Color.White;
             BtnNuevaCategoria.FlatStyle = FlatStyle.Flat;
             BtnNuevaCategoria.Font = new Font("Segoe UI Semibold", 12.7F);
-            BtnNuevaCategoria.Location = new Point(2, 44);
+            BtnNuevaCategoria.Location = new Point(2, 46);
             BtnNuevaCategoria.Name = "BtnNuevaCategoria";
             BtnNuevaCategoria.Size = new Size(170, 37);
             BtnNuevaCategoria.TabIndex = 9;
@@ -325,7 +311,6 @@
         private Button btnNuevaMarca;
         private Panel PnlOpcionesCategorias;
         private Button BtnVerCategorias;
-        private Button BtnEliminarCategoria;
         private Button BtnNuevaCategoria;
     }
 }

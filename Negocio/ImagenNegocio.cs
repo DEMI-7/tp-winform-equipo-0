@@ -12,7 +12,7 @@ namespace Negocio
         {
             List<Imagen> lista = new List<Imagen>();
             AccesoDatos conexion = new AccesoDatos();
-            conexion.SeterarConsulta("SELECT Id, IdArticulo, ImagenUrl as Url from IMAGENES");
+            conexion.SetearConsulta("SELECT Id, IdArticulo, ImagenUrl as Url from IMAGENES");
 
             try
             {
@@ -46,7 +46,7 @@ namespace Negocio
 
             try
             {
-                conexion.SeterarConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@IdArticulo,@ImagenUrl)");
+                conexion.SetearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@IdArticulo,@ImagenUrl)");
                 conexion.agregarParametro("@IdArticulo", idArticulo);
                 conexion.agregarParametro("@ImagenUrl", url);
                 conexion.ejecutarAccion();
@@ -66,7 +66,7 @@ namespace Negocio
 
             try
             {
-                conexion.SeterarConsulta("Select Id, IdArticulo, ImagenUrl as Url from Imagenes where IdArticulo = @IdArticulo");
+                conexion.SetearConsulta("Select Id, IdArticulo, ImagenUrl as Url from Imagenes where IdArticulo = @IdArticulo");
                 conexion.agregarParametro("IdArticulo", idArticulo);
                 conexion.EjecutarLectura();
 
@@ -101,7 +101,7 @@ namespace Negocio
 
             try
             {
-                conexion.SeterarConsulta("DELETE FROM Imagenes WHERE Id = @Id");
+                conexion.SetearConsulta("DELETE FROM Imagenes WHERE Id = @Id");
                 conexion.agregarParametro("Id", id);
                 conexion.ejecutarAccion();
             }

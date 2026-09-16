@@ -12,7 +12,7 @@ namespace Negocio
         {
 			List<Articulo> lista = new List<Articulo>();
 			AccesoDatos conexion = new AccesoDatos();
-			conexion.SeterarConsulta("SELECT Art.Id, Art.Codigo, Art.Nombre, Art.Descripcion, Art.IdMarca, Mar.Descripcion AS Marca, Art.IdCategoria, Cat.Descripcion AS Categoria, Art.Precio FROM ARTICULOS Art INNER JOIN MARCAS Mar ON Art.IdMarca = Mar.Id INNER JOIN CATEGORIAS Cat ON Art.IdCategoria = Cat.Id");
+			conexion.SetearConsulta("SELECT Art.Id, Art.Codigo, Art.Nombre, Art.Descripcion, Art.IdMarca, Mar.Descripcion AS Marca, Art.IdCategoria, Cat.Descripcion AS Categoria, Art.Precio FROM ARTICULOS Art INNER JOIN MARCAS Mar ON Art.IdMarca = Mar.Id INNER JOIN CATEGORIAS Cat ON Art.IdCategoria = Cat.Id");
 
 			try
 			{
@@ -73,7 +73,7 @@ namespace Negocio
 
 			try
 			{
-				conexion.SeterarConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) values (@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio)");
+				conexion.SetearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) values (@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio)");
 				conexion.agregarParametro("@Codigo", nuevo.Codigo);
                 conexion.agregarParametro("@Nombre", nuevo.Nombre);
 
@@ -121,7 +121,7 @@ namespace Negocio
 
 			try
 			{
-				conexion.SeterarConsulta("SELECT Id FROM ARTICULOS WHERE Codigo = @Codigo");
+				conexion.SetearConsulta("SELECT Id FROM ARTICULOS WHERE Codigo = @Codigo");
 				conexion.agregarParametro("@Codigo", codigo);
 				conexion.EjecutarLectura();
 
@@ -149,7 +149,7 @@ namespace Negocio
 
 			try
 			{
-				conexion.SeterarConsulta("UPDATE ARTICULOS SET Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio WHERE Id = @Id");
+				conexion.SetearConsulta("UPDATE ARTICULOS SET Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio WHERE Id = @Id");
 
 				conexion.agregarParametro("@Id", articulo.Id);
                 conexion.agregarParametro("@Codigo", articulo.Codigo);

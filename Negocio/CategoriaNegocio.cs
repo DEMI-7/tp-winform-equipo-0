@@ -12,7 +12,7 @@ namespace Negocio
         {  //creo lista vacia para guardar categorias
             List<Categoria> lista = new List<Categoria>();
             AccesoDatos conexion = new AccesoDatos();  // conectamos a bd
-            conexion.SeterarConsulta(
+            conexion.SetearConsulta(
                 "SELECT Id, Descripcion FROM CATEGORIAS"); //traigo solo id y descripcion desde categorias
             try
             {
@@ -41,7 +41,7 @@ namespace Negocio
             AccesoDatos conexion = new AccesoDatos();  // conectamos a bd
             try
             {
-                conexion.SeterarConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@Descripcion)");
+                conexion.SetearConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@Descripcion)");
 
                 conexion.agregarParametro("@Descripcion", nueva.Nombre);
                 conexion.ejecutarAccion();
@@ -60,7 +60,7 @@ namespace Negocio
             AccesoDatos conexion = new AccesoDatos();
             try
             {
-                conexion.SeterarConsulta("SELECT Id FROM ARTICULOS WHERE IdCategoria = @IdCategoria");
+                conexion.SetearConsulta("SELECT Id FROM ARTICULOS WHERE IdCategoria = @IdCategoria");
                 conexion.agregarParametro("@IdCategoria", idCategoria);
                 conexion.EjecutarLectura();
                 if (conexion.Lector.Read())
@@ -83,7 +83,7 @@ namespace Negocio
             AccesoDatos conexion = new AccesoDatos();
             try
             {
-                conexion.SeterarConsulta("DELETE FROM CATEGORIAS WHERE Id = @IdCategoria");
+                conexion.SetearConsulta("DELETE FROM CATEGORIAS WHERE Id = @IdCategoria");
                 conexion.agregarParametro("@IdCategoria", idCategoria);
                 conexion.ejecutarAccion();
             }
