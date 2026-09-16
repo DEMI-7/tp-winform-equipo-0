@@ -131,6 +131,7 @@
             BtnEliminarArticulo.TabIndex = 9;
             BtnEliminarArticulo.Text = "Eliminar artículo";
             BtnEliminarArticulo.UseVisualStyleBackColor = false;
+            BtnEliminarArticulo.Click += BtnEliminarArticulo_Click;
             // 
             // BtnNuevoArticulo
             // 
@@ -194,6 +195,7 @@
             BtnEliminarMarca.TabIndex = 9;
             BtnEliminarMarca.Text = "Eliminar marca";
             BtnEliminarMarca.UseVisualStyleBackColor = false;
+            BtnEliminarMarca.Click += BtnEliminarMarca_Click;
             // 
             // btnNuevaMarca
             // 

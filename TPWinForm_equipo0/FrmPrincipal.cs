@@ -139,7 +139,7 @@ namespace TPWinForm_equipo0
 
         private void BtnNuevaCategoria_Click(object sender, EventArgs e)
         {
-            
+
 
             foreach (var item in Application.OpenForms)
             {
@@ -171,6 +171,25 @@ namespace TPWinForm_equipo0
             ventana.MdiParent = this;
             ventana.Show();
 
+        }
+
+        private void BtnEliminarArticulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnEliminarMarca_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(FrmEliminarMarca))
+                {
+                    return;
+                }
+            }
+            FrmEliminarMarca ventana = new FrmEliminarMarca();
+            ventana.MdiParent = this;   
+            ventana.Show();
         }
     }
 

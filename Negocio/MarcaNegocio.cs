@@ -95,5 +95,34 @@ namespace Negocio
 
         }
 
+        // Devuelve true si la marca tiene al menos un artículo asociado
+        public bool tieneArticulosAsociados(int idMarca)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.limpiarParametros();
+                datos.SeterarConsulta("SELECT COUNT(*) FROM ARTICULOS WHERE IdMarca = @idMarca");
+                datos.agregarParametro("@idMarca", idMarca);
+                datos.EjecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    int cantidad = (int)datos.Lector[0];
+                    return cantidad > 0;  // true si hay al menos 1
+                }
+                return false;
+            }
+            catch (Exception) 
+            {
+                throw;
+            }
+            finally 
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+
     }
 }
