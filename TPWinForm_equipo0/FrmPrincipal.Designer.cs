@@ -59,14 +59,14 @@
             // 
             // PnlPrincipal
             // 
-            PnlPrincipal.BackColor = Color.FromArgb(8, 102, 213);
+            PnlPrincipal.BackColor = Color.DodgerBlue;
             PnlPrincipal.Controls.Add(flowLayoutPanel1);
             PnlPrincipal.Controls.Add(PbxLogo);
             PnlPrincipal.Dock = DockStyle.Left;
             PnlPrincipal.Location = new Point(0, 0);
             PnlPrincipal.Name = "PnlPrincipal";
             PnlPrincipal.Size = new Size(232, 898);
-            PnlPrincipal.TabIndex = 3;
+            PnlPrincipal.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
@@ -84,13 +84,13 @@
             // BtnArticulos
             // 
             BtnArticulos.BackColor = Color.White;
-            BtnArticulos.FlatStyle = FlatStyle.Flat;
             BtnArticulos.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            BtnArticulos.ForeColor = SystemColors.HotTrack;
             BtnArticulos.Location = new Point(5, 3);
             BtnArticulos.Margin = new Padding(5, 3, 3, 3);
             BtnArticulos.Name = "BtnArticulos";
             BtnArticulos.Size = new Size(200, 37);
-            BtnArticulos.TabIndex = 8;
+            BtnArticulos.TabIndex = 1;
             BtnArticulos.Text = "Artículos";
             BtnArticulos.UseVisualStyleBackColor = false;
             BtnArticulos.Click += BtnArticulos_Click;
@@ -104,17 +104,17 @@
             PnlOpcionesArticulos.Margin = new Padding(3, 0, 3, 3);
             PnlOpcionesArticulos.Name = "PnlOpcionesArticulos";
             PnlOpcionesArticulos.Size = new Size(183, 125);
-            PnlOpcionesArticulos.TabIndex = 5;
+            PnlOpcionesArticulos.TabIndex = 0;
             // 
             // BtnVerArticulos
             // 
             BtnVerArticulos.BackColor = Color.White;
-            BtnVerArticulos.FlatStyle = FlatStyle.Flat;
             BtnVerArticulos.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            BtnVerArticulos.ForeColor = SystemColors.HotTrack;
             BtnVerArticulos.Location = new Point(2, 3);
             BtnVerArticulos.Name = "BtnVerArticulos";
             BtnVerArticulos.Size = new Size(170, 37);
-            BtnVerArticulos.TabIndex = 8;
+            BtnVerArticulos.TabIndex = 2;
             BtnVerArticulos.Text = "Ver artículos";
             BtnVerArticulos.UseVisualStyleBackColor = false;
             BtnVerArticulos.Click += BtnVerArticulos_Click;
@@ -122,12 +122,12 @@
             // BtnEliminarArticulo
             // 
             BtnEliminarArticulo.BackColor = Color.White;
-            BtnEliminarArticulo.FlatStyle = FlatStyle.Flat;
             BtnEliminarArticulo.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            BtnEliminarArticulo.ForeColor = SystemColors.HotTrack;
             BtnEliminarArticulo.Location = new Point(2, 85);
             BtnEliminarArticulo.Name = "BtnEliminarArticulo";
             BtnEliminarArticulo.Size = new Size(170, 37);
-            BtnEliminarArticulo.TabIndex = 9;
+            BtnEliminarArticulo.TabIndex = 2;
             BtnEliminarArticulo.Text = "Eliminar artículo";
             BtnEliminarArticulo.UseVisualStyleBackColor = false;
             BtnEliminarArticulo.Click += BtnEliminarArticulo_Click;
@@ -135,12 +135,12 @@
             // BtnNuevoArticulo
             // 
             BtnNuevoArticulo.BackColor = Color.White;
-            BtnNuevoArticulo.FlatStyle = FlatStyle.Flat;
             BtnNuevoArticulo.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            BtnNuevoArticulo.ForeColor = SystemColors.HotTrack;
             BtnNuevoArticulo.Location = new Point(2, 44);
             BtnNuevoArticulo.Name = "BtnNuevoArticulo";
             BtnNuevoArticulo.Size = new Size(170, 37);
-            BtnNuevoArticulo.TabIndex = 9;
+            BtnNuevoArticulo.TabIndex = 1;
             BtnNuevoArticulo.Text = "Nuevo artículo";
             BtnNuevoArticulo.UseVisualStyleBackColor = false;
             BtnNuevoArticulo.Click += BtnNuevoArticulo_Click;
@@ -148,13 +148,13 @@
             // BtnMarcas
             // 
             BtnMarcas.BackColor = Color.White;
-            BtnMarcas.FlatStyle = FlatStyle.Flat;
             BtnMarcas.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            BtnMarcas.ForeColor = SystemColors.HotTrack;
             BtnMarcas.Location = new Point(5, 174);
             BtnMarcas.Margin = new Padding(5, 3, 3, 3);
             BtnMarcas.Name = "BtnMarcas";
             BtnMarcas.Size = new Size(200, 37);
-            BtnMarcas.TabIndex = 11;
+            BtnMarcas.TabIndex = 2;
             BtnMarcas.Text = "Marcas";
             BtnMarcas.UseVisualStyleBackColor = false;
             BtnMarcas.Click += BtnMarcas_Click;
@@ -173,12 +173,12 @@
             // BtnVerMarcas
             // 
             BtnVerMarcas.BackColor = Color.White;
-            BtnVerMarcas.FlatStyle = FlatStyle.Flat;
             BtnVerMarcas.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            BtnVerMarcas.ForeColor = SystemColors.HotTrack;
             BtnVerMarcas.Location = new Point(2, 3);
             BtnVerMarcas.Name = "BtnVerMarcas";
             BtnVerMarcas.Size = new Size(170, 37);
-            BtnVerMarcas.TabIndex = 8;
+            BtnVerMarcas.TabIndex = 0;
             BtnVerMarcas.Text = "Ver marcas";
             BtnVerMarcas.UseVisualStyleBackColor = false;
             BtnVerMarcas.Click += BtnVerMarcas_Click;
@@ -186,12 +186,12 @@
             // BtnEliminarMarca
             // 
             BtnEliminarMarca.BackColor = Color.White;
-            BtnEliminarMarca.FlatStyle = FlatStyle.Flat;
             BtnEliminarMarca.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            BtnEliminarMarca.ForeColor = SystemColors.HotTrack;
             BtnEliminarMarca.Location = new Point(2, 85);
             BtnEliminarMarca.Name = "BtnEliminarMarca";
             BtnEliminarMarca.Size = new Size(170, 37);
-            BtnEliminarMarca.TabIndex = 9;
+            BtnEliminarMarca.TabIndex = 2;
             BtnEliminarMarca.Text = "Eliminar marca";
             BtnEliminarMarca.UseVisualStyleBackColor = false;
             BtnEliminarMarca.Click += BtnEliminarMarca_Click;
@@ -199,12 +199,12 @@
             // btnNuevaMarca
             // 
             btnNuevaMarca.BackColor = Color.White;
-            btnNuevaMarca.FlatStyle = FlatStyle.Flat;
             btnNuevaMarca.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            btnNuevaMarca.ForeColor = SystemColors.HotTrack;
             btnNuevaMarca.Location = new Point(2, 44);
             btnNuevaMarca.Name = "btnNuevaMarca";
             btnNuevaMarca.Size = new Size(170, 37);
-            btnNuevaMarca.TabIndex = 9;
+            btnNuevaMarca.TabIndex = 1;
             btnNuevaMarca.Text = "Nueva marca";
             btnNuevaMarca.UseVisualStyleBackColor = false;
             btnNuevaMarca.Click += btnNuevaMarca_Click;
@@ -212,13 +212,13 @@
             // BtnCategorias
             // 
             BtnCategorias.BackColor = Color.White;
-            BtnCategorias.FlatStyle = FlatStyle.Flat;
             BtnCategorias.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            BtnCategorias.ForeColor = SystemColors.HotTrack;
             BtnCategorias.Location = new Point(5, 345);
             BtnCategorias.Margin = new Padding(5, 3, 3, 3);
             BtnCategorias.Name = "BtnCategorias";
             BtnCategorias.Size = new Size(200, 37);
-            BtnCategorias.TabIndex = 12;
+            BtnCategorias.TabIndex = 0;
             BtnCategorias.Text = "Categorías";
             BtnCategorias.UseVisualStyleBackColor = false;
             BtnCategorias.Click += BtnCategorias_Click;
@@ -236,12 +236,12 @@
             // BtnVerCategorias
             // 
             BtnVerCategorias.BackColor = Color.White;
-            BtnVerCategorias.FlatStyle = FlatStyle.Flat;
             BtnVerCategorias.Font = new Font("Segoe UI Semibold", 12.7F);
+            BtnVerCategorias.ForeColor = SystemColors.HotTrack;
             BtnVerCategorias.Location = new Point(2, 3);
             BtnVerCategorias.Name = "BtnVerCategorias";
             BtnVerCategorias.Size = new Size(170, 37);
-            BtnVerCategorias.TabIndex = 8;
+            BtnVerCategorias.TabIndex = 0;
             BtnVerCategorias.Text = "Ver categorías";
             BtnVerCategorias.UseVisualStyleBackColor = false;
             BtnVerCategorias.Click += BtnVerCategorias_Click;
@@ -249,12 +249,12 @@
             // BtnNuevaCategoria
             // 
             BtnNuevaCategoria.BackColor = Color.White;
-            BtnNuevaCategoria.FlatStyle = FlatStyle.Flat;
             BtnNuevaCategoria.Font = new Font("Segoe UI Semibold", 12.7F);
+            BtnNuevaCategoria.ForeColor = SystemColors.HotTrack;
             BtnNuevaCategoria.Location = new Point(2, 46);
             BtnNuevaCategoria.Name = "BtnNuevaCategoria";
             BtnNuevaCategoria.Size = new Size(170, 37);
-            BtnNuevaCategoria.TabIndex = 9;
+            BtnNuevaCategoria.TabIndex = 1;
             BtnNuevaCategoria.Text = "Nueva categoría";
             BtnNuevaCategoria.UseVisualStyleBackColor = false;
             BtnNuevaCategoria.Click += BtnNuevaCategoria_Click;
