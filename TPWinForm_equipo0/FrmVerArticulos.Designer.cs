@@ -32,11 +32,13 @@
             BtnEditar = new Button();
             PbxImagenArticulo = new PictureBox();
             GrillaArticulos = new DataGridView();
-            TxtBuscador = new TextBox();
+            txtBuscador = new TextBox();
             BtnRecargar = new Button();
             BtnAnteriorImagen = new Button();
             BtnSiguienteImagen = new Button();
             BtnEliminar = new Button();
+            cmbCriterio = new ComboBox();
+            lblCriterio = new Label();
             ((System.ComponentModel.ISupportInitialize)PbxImagenArticulo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GrillaArticulos).BeginInit();
             SuspendLayout();
@@ -80,15 +82,16 @@
             GrillaArticulos.CellContentClick += GrillaArticulos_CellContentClick;
             GrillaArticulos.SelectionChanged += GrillaArticulos_SelectionChanged;
             // 
-            // TxtBuscador
+            // txtBuscador
             // 
-            TxtBuscador.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TxtBuscador.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TxtBuscador.Location = new Point(12, 12);
-            TxtBuscador.Name = "TxtBuscador";
-            TxtBuscador.Size = new Size(257, 35);
-            TxtBuscador.TabIndex = 3;
-            TxtBuscador.TextChanged += TxtBuscador_TextChanged;
+            txtBuscador.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtBuscador.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtBuscador.Location = new Point(360, 538);
+            txtBuscador.Name = "txtBuscador";
+            txtBuscador.PlaceholderText = "Buscar...";
+            txtBuscador.Size = new Size(257, 35);
+            txtBuscador.TabIndex = 3;
+            txtBuscador.TextChanged += TxtBuscador_TextChanged;
             // 
             // BtnRecargar
             // 
@@ -144,16 +147,41 @@
             BtnEliminar.UseVisualStyleBackColor = false;
             BtnEliminar.Click += BtnEliminar_Click;
             // 
+            // cmbCriterio
+            // 
+            cmbCriterio.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCriterio.Font = new Font("Segoe UI", 13F);
+            cmbCriterio.FormattingEnabled = true;
+            cmbCriterio.Items.AddRange(new object[] { "Codigo", "Nombre", "Descripcion", "Marca", "Categoria" });
+            cmbCriterio.Location = new Point(214, 538);
+            cmbCriterio.Name = "cmbCriterio";
+            cmbCriterio.Size = new Size(121, 31);
+            cmbCriterio.TabIndex = 8;
+            cmbCriterio.SelectedIndexChanged += cmbCriterio_SelectedIndexChanged;
+            // 
+            // lblCriterio
+            // 
+            lblCriterio.AutoSize = true;
+            lblCriterio.Font = new Font("Segoe UI", 13F);
+            lblCriterio.Location = new Point(87, 538);
+            lblCriterio.Name = "lblCriterio";
+            lblCriterio.Size = new Size(94, 25);
+            lblCriterio.TabIndex = 9;
+            lblCriterio.Text = "Busca por:";
+            lblCriterio.Click += lblCriterio_Click;
+            // 
             // FrmVerArticulos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 617);
+            Controls.Add(lblCriterio);
+            Controls.Add(cmbCriterio);
             Controls.Add(BtnEliminar);
             Controls.Add(BtnSiguienteImagen);
             Controls.Add(BtnAnteriorImagen);
             Controls.Add(BtnRecargar);
-            Controls.Add(TxtBuscador);
+            Controls.Add(txtBuscador);
             Controls.Add(PbxImagenArticulo);
             Controls.Add(GrillaArticulos);
             Controls.Add(BtnEditar);
@@ -174,10 +202,12 @@
         private Button BtnEditar;
         private PictureBox PbxImagenArticulo;
         private DataGridView GrillaArticulos;
-        private TextBox TxtBuscador;
+        private TextBox txtBuscador;
         private Button BtnRecargar;
         private Button BtnAnteriorImagen;
         private Button BtnSiguienteImagen;
         private Button BtnEliminar;
+        private ComboBox cmbCriterio;
+        private Label lblCriterio;
     }
 }

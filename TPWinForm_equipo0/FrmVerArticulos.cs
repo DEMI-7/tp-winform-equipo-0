@@ -23,9 +23,41 @@ namespace TPWinForm_equipo0
 
         private void FrmVerArticulos_Load(object sender, EventArgs e)
         {
+
             CargarGrilla();
+
+            //ArticuloNegocio negocio = new ArticuloNegocio();
+            //try
+            //{
+            //    listaArticulos = negocio.Listar();
+            //    GrillaArticulos.DataSource = listaArticulos;
+
+            //    GrillaArticulos.Columns["MarcaProducto"]!.HeaderText = "Marca";
+            //    GrillaArticulos.Columns["CategoriaProducto"]!.HeaderText = "Categoría";
+            //    GrillaArticulos.Columns["Id"]!.Visible = false;
+            //    GrillaArticulos.Columns["Descripcion"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //    GrillaArticulos.Columns["listaImagenes"]!.Visible = false;
+
+            //    cmbCriterio.SelectedIndex = 0;
+
+
+            //    if (listaArticulos.Count > 0)
+            //    {
+            //        if (listaArticulos[0].listaImagenes.Count > 0)
+            //            CargarImagen(listaArticulos[0].listaImagenes[0].Url);
+            //        else
+            //            PbxImagenArticulo.Image = Properties.Resources.PlaceHolder;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error al cargar la grilla: " + ex.Message,
+            //                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
+
+        // revisar ; 
         private void GrillaArticulos_SelectionChanged(object sender, EventArgs e)
         {
             // cuando seleccionamos otro articulo el indice de imagen seleccionada se pone en 0 para la nueva seleccion
@@ -82,12 +114,16 @@ namespace TPWinForm_equipo0
         private void TxtBuscador_TextChanged(object sender, EventArgs e)
         {
 
+
         }
+
+
+        
 
         private void BtnRecargar_Click(object sender, EventArgs e)
         {
             CargarGrilla();
-            TxtBuscador.Focus();
+            txtBuscador.Focus();
         }
 
         // Cambia a la imagen anterior teniendo en cuenta el caso limite que ya estemos en la primer imagen, te llevaria a la ultima
@@ -193,6 +229,21 @@ namespace TPWinForm_equipo0
                 }
 
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCriterio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCriterio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
