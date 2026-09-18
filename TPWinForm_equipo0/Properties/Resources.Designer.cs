@@ -63,6 +63,16 @@ namespace TPWinForm_equipo0.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap botonRefresh {
+            get {
+                object obj = ResourceManager.GetObject("botonRefresh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogoVentaOK {
             get {
                 object obj = ResourceManager.GetObject("LogoVentaOK", resourceCulture);

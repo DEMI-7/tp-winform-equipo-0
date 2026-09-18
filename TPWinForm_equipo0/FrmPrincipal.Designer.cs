@@ -35,7 +35,6 @@
             BtnArticulos = new Button();
             PnlOpcionesArticulos = new Panel();
             BtnVerArticulos = new Button();
-            BtnEliminarArticulo = new Button();
             BtnNuevoArticulo = new Button();
             BtnMarcas = new Button();
             PnlOpcionesMarcas = new Panel();
@@ -98,12 +97,11 @@
             // PnlOpcionesArticulos
             // 
             PnlOpcionesArticulos.Controls.Add(BtnVerArticulos);
-            PnlOpcionesArticulos.Controls.Add(BtnEliminarArticulo);
             PnlOpcionesArticulos.Controls.Add(BtnNuevoArticulo);
             PnlOpcionesArticulos.Location = new Point(3, 43);
             PnlOpcionesArticulos.Margin = new Padding(3, 0, 3, 3);
             PnlOpcionesArticulos.Name = "PnlOpcionesArticulos";
-            PnlOpcionesArticulos.Size = new Size(183, 125);
+            PnlOpcionesArticulos.Size = new Size(183, 84);
             PnlOpcionesArticulos.TabIndex = 0;
             // 
             // BtnVerArticulos
@@ -118,19 +116,6 @@
             BtnVerArticulos.Text = "Ver artículos";
             BtnVerArticulos.UseVisualStyleBackColor = false;
             BtnVerArticulos.Click += BtnVerArticulos_Click;
-            // 
-            // BtnEliminarArticulo
-            // 
-            BtnEliminarArticulo.BackColor = Color.White;
-            BtnEliminarArticulo.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
-            BtnEliminarArticulo.ForeColor = SystemColors.HotTrack;
-            BtnEliminarArticulo.Location = new Point(2, 85);
-            BtnEliminarArticulo.Name = "BtnEliminarArticulo";
-            BtnEliminarArticulo.Size = new Size(170, 37);
-            BtnEliminarArticulo.TabIndex = 2;
-            BtnEliminarArticulo.Text = "Eliminar artículo";
-            BtnEliminarArticulo.UseVisualStyleBackColor = false;
-            BtnEliminarArticulo.Click += BtnEliminarArticulo_Click;
             // 
             // BtnNuevoArticulo
             // 
@@ -150,7 +135,7 @@
             BtnMarcas.BackColor = Color.White;
             BtnMarcas.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
             BtnMarcas.ForeColor = SystemColors.HotTrack;
-            BtnMarcas.Location = new Point(5, 174);
+            BtnMarcas.Location = new Point(5, 133);
             BtnMarcas.Margin = new Padding(5, 3, 3, 3);
             BtnMarcas.Name = "BtnMarcas";
             BtnMarcas.Size = new Size(200, 37);
@@ -164,7 +149,7 @@
             PnlOpcionesMarcas.Controls.Add(BtnVerMarcas);
             PnlOpcionesMarcas.Controls.Add(BtnEliminarMarca);
             PnlOpcionesMarcas.Controls.Add(btnNuevaMarca);
-            PnlOpcionesMarcas.Location = new Point(3, 214);
+            PnlOpcionesMarcas.Location = new Point(3, 173);
             PnlOpcionesMarcas.Margin = new Padding(3, 0, 3, 3);
             PnlOpcionesMarcas.Name = "PnlOpcionesMarcas";
             PnlOpcionesMarcas.Size = new Size(183, 125);
@@ -214,7 +199,7 @@
             BtnCategorias.BackColor = Color.White;
             BtnCategorias.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
             BtnCategorias.ForeColor = SystemColors.HotTrack;
-            BtnCategorias.Location = new Point(5, 345);
+            BtnCategorias.Location = new Point(5, 304);
             BtnCategorias.Margin = new Padding(5, 3, 3, 3);
             BtnCategorias.Name = "BtnCategorias";
             BtnCategorias.Size = new Size(200, 37);
@@ -227,7 +212,7 @@
             // 
             PnlOpcionesCategorias.Controls.Add(BtnVerCategorias);
             PnlOpcionesCategorias.Controls.Add(BtnNuevaCategoria);
-            PnlOpcionesCategorias.Location = new Point(3, 385);
+            PnlOpcionesCategorias.Location = new Point(3, 344);
             PnlOpcionesCategorias.Margin = new Padding(3, 0, 3, 3);
             PnlOpcionesCategorias.Name = "PnlOpcionesCategorias";
             PnlOpcionesCategorias.Size = new Size(183, 93);
@@ -301,7 +286,6 @@
         private Button BtnArticulos;
         private Panel PnlOpcionesArticulos;
         private Button BtnVerArticulos;
-        private Button BtnEliminarArticulo;
         private Button BtnNuevoArticulo;
         private Button BtnMarcas;
         private Button BtnCategorias;

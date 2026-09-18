@@ -33,9 +33,10 @@
             PbxImagenArticulo = new PictureBox();
             GrillaArticulos = new DataGridView();
             TxtBuscador = new TextBox();
-            BtnBuscar = new Button();
+            BtnRecargar = new Button();
             BtnAnteriorImagen = new Button();
             BtnSiguienteImagen = new Button();
+            BtnEliminar = new Button();
             ((System.ComponentModel.ISupportInitialize)PbxImagenArticulo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GrillaArticulos).BeginInit();
             SuspendLayout();
@@ -74,7 +75,7 @@
             GrillaArticulos.MultiSelect = false;
             GrillaArticulos.Name = "GrillaArticulos";
             GrillaArticulos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            GrillaArticulos.Size = new Size(351, 356);
+            GrillaArticulos.Size = new Size(351, 523);
             GrillaArticulos.TabIndex = 1;
             GrillaArticulos.CellContentClick += GrillaArticulos_CellContentClick;
             GrillaArticulos.SelectionChanged += GrillaArticulos_SelectionChanged;
@@ -89,17 +90,19 @@
             TxtBuscador.TabIndex = 3;
             TxtBuscador.TextChanged += TxtBuscador_TextChanged;
             // 
-            // BtnBuscar
+            // BtnRecargar
             // 
-            BtnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnBuscar.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BtnBuscar.Location = new Point(275, 6);
-            BtnBuscar.Name = "BtnBuscar";
-            BtnBuscar.Size = new Size(88, 48);
-            BtnBuscar.TabIndex = 4;
-            BtnBuscar.Text = "Buscar";
-            BtnBuscar.UseVisualStyleBackColor = true;
-            BtnBuscar.Click += BtnBuscar_Click;
+            BtnRecargar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnRecargar.BackColor = Color.White;
+            BtnRecargar.FlatStyle = FlatStyle.Flat;
+            BtnRecargar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BtnRecargar.Location = new Point(275, 12);
+            BtnRecargar.Name = "BtnRecargar";
+            BtnRecargar.Size = new Size(88, 35);
+            BtnRecargar.TabIndex = 4;
+            BtnRecargar.Text = "Recargar";
+            BtnRecargar.UseVisualStyleBackColor = false;
+            BtnRecargar.Click += BtnRecargar_Click;
             // 
             // BtnAnteriorImagen
             // 
@@ -127,14 +130,29 @@
             BtnSiguienteImagen.UseVisualStyleBackColor = true;
             BtnSiguienteImagen.Click += BtnSiguienteImagen_Click;
             // 
+            // BtnEliminar
+            // 
+            BtnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnEliminar.BackColor = Color.FromArgb(229, 57, 53);
+            BtnEliminar.FlatStyle = FlatStyle.Flat;
+            BtnEliminar.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnEliminar.Location = new Point(625, 473);
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Size = new Size(130, 42);
+            BtnEliminar.TabIndex = 7;
+            BtnEliminar.Text = "Eliminar";
+            BtnEliminar.UseVisualStyleBackColor = false;
+            BtnEliminar.Click += BtnEliminar_Click;
+            // 
             // FrmVerArticulos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 617);
+            Controls.Add(BtnEliminar);
             Controls.Add(BtnSiguienteImagen);
             Controls.Add(BtnAnteriorImagen);
-            Controls.Add(BtnBuscar);
+            Controls.Add(BtnRecargar);
             Controls.Add(TxtBuscador);
             Controls.Add(PbxImagenArticulo);
             Controls.Add(GrillaArticulos);
@@ -157,8 +175,9 @@
         private PictureBox PbxImagenArticulo;
         private DataGridView GrillaArticulos;
         private TextBox TxtBuscador;
-        private Button BtnBuscar;
+        private Button BtnRecargar;
         private Button BtnAnteriorImagen;
         private Button BtnSiguienteImagen;
+        private Button BtnEliminar;
     }
 }

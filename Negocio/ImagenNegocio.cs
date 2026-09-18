@@ -67,7 +67,7 @@ namespace Negocio
             try
             {
                 conexion.SetearConsulta("Select Id, IdArticulo, ImagenUrl as Url from Imagenes where IdArticulo = @IdArticulo");
-                conexion.agregarParametro("IdArticulo", idArticulo);
+                conexion.agregarParametro("@IdArticulo", idArticulo);
                 conexion.EjecutarLectura();
 
                 while (conexion.Lector.Read())
@@ -102,7 +102,7 @@ namespace Negocio
             try
             {
                 conexion.SetearConsulta("DELETE FROM Imagenes WHERE Id = @Id");
-                conexion.agregarParametro("Id", id);
+                conexion.agregarParametro("@Id", id);
                 conexion.ejecutarAccion();
             }
             catch (Exception)
@@ -136,6 +136,25 @@ namespace Negocio
                         GuardarImagen(idArticulo, img.Url);
                     }
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void EliminarImagenPorArticulo(int idArticulo)
+        {
+            AccesoDatos conexion = new AccesoDatos();
+
+            try
+            {
+                conexion.SetearConsulta("DELETE FROM IMAGENES WHERE IdArticulo = @IdArticulo");
+                conexion.agregarParametro("@IdArticulo", idArticulo);
+
+                conexion.ejecutarAccion();
+
             }
             catch (Exception)
             {

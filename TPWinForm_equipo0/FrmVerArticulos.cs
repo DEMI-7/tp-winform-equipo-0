@@ -84,9 +84,10 @@ namespace TPWinForm_equipo0
 
         }
 
-        private void BtnBuscar_Click(object sender, EventArgs e)
+        private void BtnRecargar_Click(object sender, EventArgs e)
         {
-
+            CargarGrilla();
+            TxtBuscador.Focus();
         }
 
         // Cambia a la imagen anterior teniendo en cuenta el caso limite que ya estemos en la primer imagen, te llevaria a la ultima
@@ -162,6 +163,36 @@ namespace TPWinForm_equipo0
             editar.StartPosition = FormStartPosition.CenterScreen;
             editar.ShowDialog();
             CargarGrilla();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (GrillaArticulos.CurrentRow != null && GrillaArticulos.CurrentRow.DataBoundItem != null)
+            {
+                DialogResult respuesta = MessageBox.Show("¿Seguro que vas a borrar este artículo?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    try
+                    {
+                        Articulo seleccionado = (Articulo)GrillaArticulos.CurrentRow.DataBoundItem;
+                        ImagenNegocio imagenNegocio = new ImagenNegocio();
+                        ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+
+                        imagenNegocio.EliminarImagenPorArticulo(seleccionado.Id);
+                        articuloNegocio.EliminarArticulo(seleccionado);
+
+                        MessageBox.Show("Articulo Eliminado exitosamente.");
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error al eliminar el artículo.");
+                    }
+
+                    CargarGrilla();
+                }
+
+            }
         }
     }
 }

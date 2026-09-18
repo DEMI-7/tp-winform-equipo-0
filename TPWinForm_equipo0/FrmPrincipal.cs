@@ -174,11 +174,6 @@ namespace TPWinForm_equipo0
 
         }
 
-        private void BtnEliminarArticulo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnEliminarMarca_Click(object sender, EventArgs e)
         {
             foreach (var item in Application.OpenForms)

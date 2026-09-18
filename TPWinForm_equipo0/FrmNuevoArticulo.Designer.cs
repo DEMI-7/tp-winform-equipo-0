@@ -60,13 +60,16 @@
             // BtnAceptar
             // 
             BtnAceptar.Anchor = AnchorStyles.Left;
-            BtnAceptar.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BtnAceptar.BackColor = Color.FromArgb(53, 214, 107);
+            BtnAceptar.FlatStyle = FlatStyle.Flat;
+            BtnAceptar.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnAceptar.ForeColor = SystemColors.ControlText;
             BtnAceptar.Location = new Point(713, 505);
             BtnAceptar.Name = "BtnAceptar";
             BtnAceptar.Size = new Size(140, 40);
             BtnAceptar.TabIndex = 0;
             BtnAceptar.Text = "Aceptar";
-            BtnAceptar.UseVisualStyleBackColor = true;
+            BtnAceptar.UseVisualStyleBackColor = false;
             BtnAceptar.Click += BtnAceptar_Click;
             // 
             // LblNombre
@@ -206,13 +209,15 @@
             // BtnCancelar
             // 
             BtnCancelar.Anchor = AnchorStyles.Left;
-            BtnCancelar.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BtnCancelar.BackColor = Color.White;
+            BtnCancelar.FlatStyle = FlatStyle.Flat;
+            BtnCancelar.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnCancelar.Location = new Point(880, 505);
             BtnCancelar.Name = "BtnCancelar";
             BtnCancelar.Size = new Size(140, 40);
             BtnCancelar.TabIndex = 14;
             BtnCancelar.Text = "Cancelar";
-            BtnCancelar.UseVisualStyleBackColor = true;
+            BtnCancelar.UseVisualStyleBackColor = false;
             BtnCancelar.Click += BtnCancelar_Click;
             // 
             // ComboMarca
@@ -253,25 +258,29 @@
             // BtnPegar
             // 
             BtnPegar.Anchor = AnchorStyles.Left;
+            BtnPegar.BackColor = Color.White;
+            BtnPegar.FlatStyle = FlatStyle.Flat;
             BtnPegar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnPegar.Location = new Point(218, 448);
             BtnPegar.Name = "BtnPegar";
             BtnPegar.Size = new Size(80, 30);
             BtnPegar.TabIndex = 18;
             BtnPegar.Text = "Pegar URL";
-            BtnPegar.UseVisualStyleBackColor = true;
+            BtnPegar.UseVisualStyleBackColor = false;
             BtnPegar.Click += BtnPegar_Click;
             // 
             // BtnEnter
             // 
             BtnEnter.Anchor = AnchorStyles.Left;
+            BtnEnter.BackColor = Color.White;
+            BtnEnter.FlatStyle = FlatStyle.Flat;
             BtnEnter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnEnter.Location = new Point(334, 448);
             BtnEnter.Name = "BtnEnter";
             BtnEnter.Size = new Size(80, 30);
             BtnEnter.TabIndex = 19;
             BtnEnter.Text = "Enter";
-            BtnEnter.UseVisualStyleBackColor = true;
+            BtnEnter.UseVisualStyleBackColor = false;
             BtnEnter.Click += BtnEnter_Click;
             // 
             // ErrorUrlImagen
@@ -281,13 +290,15 @@
             // BtnEliminarImagen
             // 
             BtnEliminarImagen.Anchor = AnchorStyles.Left;
+            BtnEliminarImagen.BackColor = Color.White;
+            BtnEliminarImagen.FlatStyle = FlatStyle.Flat;
             BtnEliminarImagen.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             BtnEliminarImagen.Location = new Point(1319, 448);
             BtnEliminarImagen.Name = "BtnEliminarImagen";
             BtnEliminarImagen.Size = new Size(190, 30);
             BtnEliminarImagen.TabIndex = 20;
             BtnEliminarImagen.Text = "Eliminar imagen";
-            BtnEliminarImagen.UseVisualStyleBackColor = true;
+            BtnEliminarImagen.UseVisualStyleBackColor = false;
             BtnEliminarImagen.Click += BtnEliminarImagen_Click;
             // 
             // FrmNuevoArticulo

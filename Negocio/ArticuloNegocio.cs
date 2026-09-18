@@ -166,7 +166,25 @@ namespace Negocio
 
 				throw;
 			}
+		}
 
+		public void EliminarArticulo(Articulo articulo)
+		{
+			AccesoDatos conexion = new AccesoDatos();
+
+			try
+			{
+				conexion.SetearConsulta("DELETE FROM ARTICULOS WHERE Id = @Id");
+				conexion.agregarParametro("@Id", articulo.Id);
+
+				conexion.ejecutarAccion();
+
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
 		}
     }
 }
