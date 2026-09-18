@@ -86,10 +86,10 @@
             // 
             txtBuscador.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtBuscador.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtBuscador.Location = new Point(360, 538);
+            txtBuscador.Location = new Point(248, 11);
             txtBuscador.Name = "txtBuscador";
-            txtBuscador.PlaceholderText = "Buscar...";
-            txtBuscador.Size = new Size(257, 35);
+            txtBuscador.PlaceholderText = "Buscar... ";
+            txtBuscador.Size = new Size(187, 35);
             txtBuscador.TabIndex = 3;
             txtBuscador.TextChanged += TxtBuscador_TextChanged;
             // 
@@ -99,7 +99,7 @@
             BtnRecargar.BackColor = Color.White;
             BtnRecargar.FlatStyle = FlatStyle.Flat;
             BtnRecargar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BtnRecargar.Location = new Point(275, 12);
+            BtnRecargar.Location = new Point(667, 570);
             BtnRecargar.Name = "BtnRecargar";
             BtnRecargar.Size = new Size(88, 35);
             BtnRecargar.TabIndex = 4;
@@ -152,8 +152,8 @@
             cmbCriterio.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCriterio.Font = new Font("Segoe UI", 13F);
             cmbCriterio.FormattingEnabled = true;
-            cmbCriterio.Items.AddRange(new object[] { "Codigo", "Nombre", "Descripcion", "Marca", "Categoria" });
-            cmbCriterio.Location = new Point(214, 538);
+            cmbCriterio.Items.AddRange(new object[] { "Codigo", "Nombre", "Marca", "Categoria" });
+            cmbCriterio.Location = new Point(108, 11);
             cmbCriterio.Name = "cmbCriterio";
             cmbCriterio.Size = new Size(121, 31);
             cmbCriterio.TabIndex = 8;
@@ -163,11 +163,11 @@
             // 
             lblCriterio.AutoSize = true;
             lblCriterio.Font = new Font("Segoe UI", 13F);
-            lblCriterio.Location = new Point(87, 538);
+            lblCriterio.Location = new Point(2, 14);
             lblCriterio.Name = "lblCriterio";
-            lblCriterio.Size = new Size(94, 25);
+            lblCriterio.Size = new Size(100, 25);
             lblCriterio.TabIndex = 9;
-            lblCriterio.Text = "Busca por:";
+            lblCriterio.Text = "Buscar por:";
             lblCriterio.Click += lblCriterio_Click;
             // 
             // FrmVerArticulos

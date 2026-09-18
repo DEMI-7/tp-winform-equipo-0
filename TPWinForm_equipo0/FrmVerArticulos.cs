@@ -24,36 +24,49 @@ namespace TPWinForm_equipo0
         private void FrmVerArticulos_Load(object sender, EventArgs e)
         {
 
-            CargarGrilla();
+            //  CargarGrilla();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                listaArticulos = negocio.Listar();
+                GrillaArticulos.DataSource = listaArticulos;
 
-            //ArticuloNegocio negocio = new ArticuloNegocio();
-            //try
-            //{
-            //    listaArticulos = negocio.Listar();
-            //    GrillaArticulos.DataSource = listaArticulos;
+                configurarColumnas();  
 
-            //    GrillaArticulos.Columns["MarcaProducto"]!.HeaderText = "Marca";
-            //    GrillaArticulos.Columns["CategoriaProducto"]!.HeaderText = "Categoría";
-            //    GrillaArticulos.Columns["Id"]!.Visible = false;
-            //    GrillaArticulos.Columns["Descripcion"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //    GrillaArticulos.Columns["listaImagenes"]!.Visible = false;
+                cmbCriterio.SelectedIndex = 0;
 
-            //    cmbCriterio.SelectedIndex = 0;
+                if (listaArticulos.Count > 0)
+                {
+                    if (listaArticulos[0].listaImagenes.Count > 0)
+                        CargarImagen(listaArticulos[0].listaImagenes[0].Url);
+                    else
+                        PbxImagenArticulo.Image = Properties.Resources.PlaceHolder;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la grilla: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
+        }
 
-            //    if (listaArticulos.Count > 0)
-            //    {
-            //        if (listaArticulos[0].listaImagenes.Count > 0)
-            //            CargarImagen(listaArticulos[0].listaImagenes[0].Url);
-            //        else
-            //            PbxImagenArticulo.Image = Properties.Resources.PlaceHolder;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error al cargar la grilla: " + ex.Message,
-            //                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+        private void configurarColumnas()
+        {
+            if (GrillaArticulos.Columns["Id"] != null)
+                GrillaArticulos.Columns["Id"]!.Visible = false;
+
+            if (GrillaArticulos.Columns["listaImagenes"] != null)
+                GrillaArticulos.Columns["listaImagenes"]!.Visible = false;
+
+            if (GrillaArticulos.Columns["MarcaProducto"] != null)
+                GrillaArticulos.Columns["MarcaProducto"]!.HeaderText = "Marca";
+
+            if (GrillaArticulos.Columns["CategoriaProducto"] != null)
+                GrillaArticulos.Columns["CategoriaProducto"]!.HeaderText = "Categoría";
+
+            if (GrillaArticulos.Columns["Descripcion"] != null)
+                GrillaArticulos.Columns["Descripcion"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
 
@@ -113,12 +126,54 @@ namespace TPWinForm_equipo0
 
         private void TxtBuscador_TextChanged(object sender, EventArgs e)
         {
+            if (listaArticulos == null) return;
 
+            List<Articulo> filtrada;
+            string filtro = txtBuscador.Text.Trim().ToUpper();
+            string criterio = cmbCriterio.SelectedItem?.ToString() ?? "Nombre";
 
+            if (string.IsNullOrEmpty(filtro))
+            {
+                filtrada = listaArticulos;
+            }
+            else
+            {
+                switch (criterio)
+                {
+                    case "Codigo":
+                        filtrada = listaArticulos.FindAll(a => a.Codigo.ToUpper().Contains(filtro));
+                        break;
+                    case "Nombre":
+                        filtrada = listaArticulos.FindAll(a => a.Nombre.ToUpper().Contains(filtro));
+                        break;
+                    case "Descripcion":
+                        filtrada = listaArticulos.FindAll(a => a.Descripcion.ToUpper().Contains(filtro));
+                        break;
+                    case "Marca":
+                        filtrada = listaArticulos.FindAll(a => a.MarcaProducto.Nombre.ToUpper().Contains(filtro));
+                        break;
+                    case "Categoria":
+                        filtrada = listaArticulos.FindAll(a => a.CategoriaProducto.Nombre.ToUpper().Contains(filtro));
+                        break;
+                    default:
+                        filtrada = listaArticulos;
+                        break;
+                }
+            }
+
+            GrillaArticulos.DataSource = null;
+            GrillaArticulos.DataSource = filtrada;
+
+            configurarColumnas();  
+
+            
         }
 
 
-        
+
+
+
+
 
         private void BtnRecargar_Click(object sender, EventArgs e)
         {
@@ -243,7 +298,8 @@ namespace TPWinForm_equipo0
 
         private void cmbCriterio_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            TxtBuscador_TextChanged(sender, e);
+            // Llamamos al evento de cambio de texto para filtrar la lista según el nuevo criterio seleccionado
         }
     }
 }
