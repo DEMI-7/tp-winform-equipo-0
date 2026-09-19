@@ -52,9 +52,15 @@
             BtnEnter = new Button();
             ErrorUrlImagen = new ErrorProvider(components);
             BtnEliminarImagen = new Button();
+            ErrorCodigo = new ErrorProvider(components);
+            ErrorNombre = new ErrorProvider(components);
+            ErrorPrecio = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)PbxImagenArticulo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GrillaUrlImagenes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ErrorUrlImagen).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ErrorCodigo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ErrorNombre).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ErrorPrecio).BeginInit();
             SuspendLayout();
             // 
             // BtnAceptar
@@ -301,6 +307,18 @@
             BtnEliminarImagen.UseVisualStyleBackColor = false;
             BtnEliminarImagen.Click += BtnEliminarImagen_Click;
             // 
+            // ErrorCodigo
+            // 
+            ErrorCodigo.ContainerControl = this;
+            // 
+            // ErrorNombre
+            // 
+            ErrorNombre.ContainerControl = this;
+            // 
+            // ErrorPrecio
+            // 
+            ErrorPrecio.ContainerControl = this;
+            // 
             // FrmNuevoArticulo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -336,6 +354,9 @@
             ((System.ComponentModel.ISupportInitialize)PbxImagenArticulo).EndInit();
             ((System.ComponentModel.ISupportInitialize)GrillaUrlImagenes).EndInit();
             ((System.ComponentModel.ISupportInitialize)ErrorUrlImagen).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ErrorCodigo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ErrorNombre).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ErrorPrecio).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -364,5 +385,8 @@
         private Button BtnEnter;
         private ErrorProvider ErrorUrlImagen;
         private Button BtnEliminarImagen;
+        private ErrorProvider ErrorCodigo;
+        private ErrorProvider ErrorNombre;
+        private ErrorProvider ErrorPrecio;
     }
 }

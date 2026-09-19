@@ -42,28 +42,53 @@ namespace TPWinForm_equipo0
 
             if (string.IsNullOrWhiteSpace(TxtCodigo.Text))
             {
+                /*
                 MessageBox.Show("El campo Código es obligatorio.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TxtCodigo.Focus();
+                 */
+
+                TxtCodigo.Clear();
+                TxtCodigo.Focus();
+                ErrorCodigo.SetError(TxtCodigo, "El campo Código es obligatorio.");
                 return;
             }
             if (string.IsNullOrWhiteSpace(TxtNombre.Text))
             {
+                /*
                 MessageBox.Show("El campo Nombre es obligatorio.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TxtCodigo.Focus();
+                 */
+
+                TxtNombre.Clear();
+                TxtNombre.Focus();
+                ErrorNombre.SetError(TxtNombre, "El campo Nombre es obligatorio.");
                 return;
+
             }
             if (articulo == null && negocio.ObtenerIdPorCodigo(TxtCodigo.Text) != 0)
             {
+                /*
                 MessageBox.Show("El Codigo ya esta en uso.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TxtCodigo.Focus();
+                */
+
+                TxtCodigo.Focus();
+                ErrorCodigo.SetError(TxtCodigo, "El Codigo ya esta en uso.");
+
                 return;
             }
             else if (articulo != null && articulo.Codigo != TxtCodigo.Text)
             {
                 if (negocio.ObtenerIdPorCodigo(TxtCodigo.Text) != 0)
                 {
+                    /*
                     MessageBox.Show("El Codigo ya esta en uso.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     TxtCodigo.Focus();
+                     */
+
+
+                    TxtCodigo.Focus();
+                    ErrorCodigo.SetError(TxtCodigo, "El Codigo ya esta en uso.");
                     return;
                 }
             }
@@ -91,7 +116,11 @@ namespace TPWinForm_equipo0
                 }
                 else
                 {
-                    MessageBox.Show("El precio ingresado no es valido, solo se permiten números.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //MessageBox.Show("El precio ingresado no es valido, solo se permiten números.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    TxtPrecio.Clear();
+                    ErrorPrecio.SetError(TxtPrecio, "El precio ingresado no es valido, solo se permiten números.");
+                    return;
                 }
 
                 if (articulo.Id != 0)

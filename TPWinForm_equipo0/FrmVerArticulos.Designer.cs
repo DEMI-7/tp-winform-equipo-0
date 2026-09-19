@@ -51,7 +51,7 @@
             BtnEditar.Location = new Point(481, 381);
             BtnEditar.Name = "BtnEditar";
             BtnEditar.Size = new Size(204, 64);
-            BtnEditar.TabIndex = 0;
+            BtnEditar.TabIndex = 4;
             BtnEditar.Text = "Editar";
             BtnEditar.UseVisualStyleBackColor = true;
             BtnEditar.Click += BtnEditar_Click;
@@ -78,7 +78,7 @@
             GrillaArticulos.Name = "GrillaArticulos";
             GrillaArticulos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             GrillaArticulos.Size = new Size(351, 523);
-            GrillaArticulos.TabIndex = 1;
+            GrillaArticulos.TabIndex = 2;
             GrillaArticulos.CellContentClick += GrillaArticulos_CellContentClick;
             GrillaArticulos.SelectionChanged += GrillaArticulos_SelectionChanged;
             // 
@@ -89,8 +89,8 @@
             txtBuscador.Location = new Point(248, 11);
             txtBuscador.Name = "txtBuscador";
             txtBuscador.PlaceholderText = "Buscar... ";
-            txtBuscador.Size = new Size(187, 35);
-            txtBuscador.TabIndex = 3;
+            txtBuscador.Size = new Size(115, 35);
+            txtBuscador.TabIndex = 1;
             txtBuscador.TextChanged += TxtBuscador_TextChanged;
             // 
             // BtnRecargar
@@ -99,10 +99,10 @@
             BtnRecargar.BackColor = Color.White;
             BtnRecargar.FlatStyle = FlatStyle.Flat;
             BtnRecargar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BtnRecargar.Location = new Point(667, 570);
+            BtnRecargar.Location = new Point(411, 474);
             BtnRecargar.Name = "BtnRecargar";
-            BtnRecargar.Size = new Size(88, 35);
-            BtnRecargar.TabIndex = 4;
+            BtnRecargar.Size = new Size(130, 42);
+            BtnRecargar.TabIndex = 6;
             BtnRecargar.Text = "Recargar";
             BtnRecargar.UseVisualStyleBackColor = false;
             BtnRecargar.Click += BtnRecargar_Click;
@@ -115,7 +115,7 @@
             BtnAnteriorImagen.Location = new Point(411, 381);
             BtnAnteriorImagen.Name = "BtnAnteriorImagen";
             BtnAnteriorImagen.Size = new Size(64, 64);
-            BtnAnteriorImagen.TabIndex = 5;
+            BtnAnteriorImagen.TabIndex = 3;
             BtnAnteriorImagen.Text = "<";
             BtnAnteriorImagen.UseVisualStyleBackColor = true;
             BtnAnteriorImagen.Click += BtnAnteriorImagen_Click;
@@ -128,7 +128,7 @@
             BtnSiguienteImagen.Location = new Point(691, 381);
             BtnSiguienteImagen.Name = "BtnSiguienteImagen";
             BtnSiguienteImagen.Size = new Size(64, 64);
-            BtnSiguienteImagen.TabIndex = 6;
+            BtnSiguienteImagen.TabIndex = 5;
             BtnSiguienteImagen.Text = ">";
             BtnSiguienteImagen.UseVisualStyleBackColor = true;
             BtnSiguienteImagen.Click += BtnSiguienteImagen_Click;
@@ -156,7 +156,7 @@
             cmbCriterio.Location = new Point(108, 11);
             cmbCriterio.Name = "cmbCriterio";
             cmbCriterio.Size = new Size(121, 31);
-            cmbCriterio.TabIndex = 8;
+            cmbCriterio.TabIndex = 0;
             cmbCriterio.SelectedIndexChanged += cmbCriterio_SelectedIndexChanged;
             // 
             // lblCriterio
