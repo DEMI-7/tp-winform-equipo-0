@@ -46,7 +46,6 @@
             // BtnEditar
             // 
             BtnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnEditar.FlatStyle = FlatStyle.Flat;
             BtnEditar.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnEditar.Location = new Point(481, 381);
             BtnEditar.Name = "BtnEditar";
@@ -97,7 +96,6 @@
             // 
             BtnRecargar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnRecargar.BackColor = Color.White;
-            BtnRecargar.FlatStyle = FlatStyle.Flat;
             BtnRecargar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BtnRecargar.Location = new Point(411, 474);
             BtnRecargar.Name = "BtnRecargar";
@@ -110,34 +108,33 @@
             // BtnAnteriorImagen
             // 
             BtnAnteriorImagen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnAnteriorImagen.FlatStyle = FlatStyle.Flat;
             BtnAnteriorImagen.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnAnteriorImagen.Location = new Point(411, 381);
             BtnAnteriorImagen.Name = "BtnAnteriorImagen";
             BtnAnteriorImagen.Size = new Size(64, 64);
             BtnAnteriorImagen.TabIndex = 3;
             BtnAnteriorImagen.Text = "<";
+            BtnAnteriorImagen.TextAlign = ContentAlignment.TopLeft;
             BtnAnteriorImagen.UseVisualStyleBackColor = true;
             BtnAnteriorImagen.Click += BtnAnteriorImagen_Click;
             // 
             // BtnSiguienteImagen
             // 
             BtnSiguienteImagen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnSiguienteImagen.FlatStyle = FlatStyle.Flat;
             BtnSiguienteImagen.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold);
             BtnSiguienteImagen.Location = new Point(691, 381);
             BtnSiguienteImagen.Name = "BtnSiguienteImagen";
             BtnSiguienteImagen.Size = new Size(64, 64);
             BtnSiguienteImagen.TabIndex = 5;
             BtnSiguienteImagen.Text = ">";
+            BtnSiguienteImagen.TextAlign = ContentAlignment.TopRight;
             BtnSiguienteImagen.UseVisualStyleBackColor = true;
             BtnSiguienteImagen.Click += BtnSiguienteImagen_Click;
             // 
             // BtnEliminar
             // 
             BtnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnEliminar.BackColor = Color.FromArgb(229, 57, 53);
-            BtnEliminar.FlatStyle = FlatStyle.Flat;
+            BtnEliminar.BackColor = Color.FromArgb(255, 192, 192);
             BtnEliminar.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnEliminar.Location = new Point(625, 473);
             BtnEliminar.Name = "BtnEliminar";

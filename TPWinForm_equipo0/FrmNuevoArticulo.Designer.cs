@@ -66,8 +66,7 @@
             // BtnAceptar
             // 
             BtnAceptar.Anchor = AnchorStyles.Left;
-            BtnAceptar.BackColor = Color.FromArgb(53, 214, 107);
-            BtnAceptar.FlatStyle = FlatStyle.Flat;
+            BtnAceptar.BackColor = Color.FromArgb(192, 255, 192);
             BtnAceptar.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnAceptar.ForeColor = SystemColors.ControlText;
             BtnAceptar.Location = new Point(713, 505);
@@ -216,7 +215,6 @@
             // 
             BtnCancelar.Anchor = AnchorStyles.Left;
             BtnCancelar.BackColor = Color.White;
-            BtnCancelar.FlatStyle = FlatStyle.Flat;
             BtnCancelar.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnCancelar.Location = new Point(880, 505);
             BtnCancelar.Name = "BtnCancelar";
@@ -265,7 +263,6 @@
             // 
             BtnPegar.Anchor = AnchorStyles.Left;
             BtnPegar.BackColor = Color.White;
-            BtnPegar.FlatStyle = FlatStyle.Flat;
             BtnPegar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnPegar.Location = new Point(218, 448);
             BtnPegar.Name = "BtnPegar";
@@ -279,7 +276,6 @@
             // 
             BtnEnter.Anchor = AnchorStyles.Left;
             BtnEnter.BackColor = Color.White;
-            BtnEnter.FlatStyle = FlatStyle.Flat;
             BtnEnter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnEnter.Location = new Point(334, 448);
             BtnEnter.Name = "BtnEnter";
@@ -297,7 +293,6 @@
             // 
             BtnEliminarImagen.Anchor = AnchorStyles.Left;
             BtnEliminarImagen.BackColor = Color.White;
-            BtnEliminarImagen.FlatStyle = FlatStyle.Flat;
             BtnEliminarImagen.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             BtnEliminarImagen.Location = new Point(1319, 448);
             BtnEliminarImagen.Name = "BtnEliminarImagen";

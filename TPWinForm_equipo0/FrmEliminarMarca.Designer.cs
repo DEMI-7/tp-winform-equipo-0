@@ -39,10 +39,10 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 13F);
-            lblTitulo.Location = new Point(37, 9);
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(37, 24);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(128, 22);
+            lblTitulo.Size = new Size(173, 29);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Eliminar Marca";
             // 
@@ -50,7 +50,7 @@
             // 
             lblAyuda.AutoSize = true;
             lblAyuda.Font = new Font("Segoe UI", 11F);
-            lblAyuda.Location = new Point(46, 70);
+            lblAyuda.Location = new Point(37, 158);
             lblAyuda.Name = "lblAyuda";
             lblAyuda.Size = new Size(276, 20);
             lblAyuda.TabIndex = 1;
@@ -63,7 +63,7 @@
             dgvMarcas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvMarcas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMarcas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMarcas.Location = new Point(37, 99);
+            dgvMarcas.Location = new Point(37, 190);
             dgvMarcas.MultiSelect = false;
             dgvMarcas.Name = "dgvMarcas";
             dgvMarcas.ReadOnly = true;
@@ -74,9 +74,10 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.BackColor = Color.FromArgb(255, 128, 128);
-            btnEliminar.ForeColor = SystemColors.ButtonFace;
-            btnEliminar.Location = new Point(37, 467);
+            btnEliminar.BackColor = Color.FromArgb(255, 192, 192);
+            btnEliminar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminar.ForeColor = SystemColors.ActiveCaptionText;
+            btnEliminar.Location = new Point(37, 80);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(156, 30);
             btnEliminar.TabIndex = 3;
@@ -86,9 +87,9 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(256, 467);
+            btnCancelar.Location = new Point(37, 116);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(87, 30);
+            btnCancelar.Size = new Size(156, 30);
             btnCancelar.TabIndex = 4;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
